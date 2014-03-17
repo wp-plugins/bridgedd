@@ -1,0 +1,152 @@
+# Copyright (C) 2014 Dion Designs
+# This file is distributed under the same license as the BridgeDD&trade; package.
+msgid ""
+msgstr ""
+"Project-Id-Version: BridgeDD 1.1.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/bridgedd\n"
+"POT-Creation-Date: 2014-02-17 03:11:15+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#. Do not translate HTML tags
+#: bridgedd.plugin:126
+msgid "<strong>ERROR</strong>: WordPress Integration failed."
+msgstr ""
+
+#: bridgedd.plugin:126 bridgedd.plugin:154
+msgid "Please contact the board administrator."
+msgstr ""
+
+#. do not translate HTML tags
+#: bridgedd.plugin:154
+msgid "<strong>ERROR</strong>: Your username already exists in phpBB."
+msgstr ""
+
+#. %1$s = user's name, %2$s = program name
+#. do not translate HTML tags
+#: bridgedd.plugin:205
+msgid ""
+"Welcome, <strong>%1$s</strong>. Your %2$s account is not integrated with "
+"this site."
+msgstr ""
+
+#. do not translate HTML tags
+#: bridgedd.plugin:206
+msgid ""
+"Press the <strong>Log In</strong> button if you have an account here. Your "
+"two accounts will be integrated after logging in."
+msgstr ""
+
+#. do not translate HTML tags
+#: bridgedd.plugin:207
+msgid ""
+"If you do not have an account here, press the <strong>Integrate My Account</"
+"strong> button and an account will be created."
+msgstr ""
+
+#: bridgedd.plugin:210
+msgid "Log In"
+msgstr ""
+
+#: bridgedd.plugin:211
+msgid "Integrate My Account"
+msgstr ""
+
+#: bridgedd.plugin:291
+msgid "Board"
+msgstr ""
+
+#: bridgedd.plugin:306
+msgid "Please set all other User options in phpBB."
+msgstr ""
+
+#: bridgedd.plugin:318
+msgid "by"
+msgstr ""
+
+#. %s = plugin name
+#: bridgedd.plugin:430
+msgid "%s has established a connection to phpBB."
+msgstr ""
+
+#. %s = file name
+#. Do not translate HTML tags
+#: bridgedd.plugin:455
+msgid ""
+"The path specified is not the correct absolute path to the phpBB <code>%s</"
+"code> file."
+msgstr ""
+
+#. %s = plugin name
+#: bridgedd.plugin:462
+msgid "%s Settings"
+msgstr ""
+
+#. %s = file name
+#. do not translate HTML tags
+#: bridgedd.plugin:466
+msgid "Absolute path to phpBB <code>%s</code> file:"
+msgstr ""
+
+#: bridgedd.plugin:472
+msgid "Application that should handle user registrations:"
+msgstr ""
+
+#: bridgedd.plugin:481
+msgid "Save Changes"
+msgstr ""
+
+#: bridgedd.plugin:491
+msgid ""
+"For support, and free WordPress plugins and phpBB modifications, become a "
+"member of our phpBB board:"
+msgstr ""
+
+#: bridgedd.plugin:502 bridgedd.plugin:506
+msgid "Settings"
+msgstr ""
+
+#. %s = file name
+#: bridgedd.plugin:515
+msgid "Required file %s not found"
+msgstr ""
+
+#. %s = file name
+#. do not translate HTML tags
+#: bridgedd.plugin:530
+msgid "Incorrect version of <strong>%s</strong> file"
+msgstr ""
+
+#. %s = file name
+#. do not translate HTML tags
+#: bridgedd.plugin:560 bridgedd.plugin:569
+msgid "Cannot locate the following in <strong>%s</strong>:"
+msgstr ""
+
+#. No translation — copy original string
+#. Plugin Name of the plugin/theme
+msgid "BridgeDD"
+msgstr ""
+
+#. No translation — copy original string
+#. Plugin URI of the plugin/theme
+msgid "http://www.diondesigns.org/bridgedd/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Creates a bridge between phpBB and WordPress"
+msgstr ""
+
+#. No translation — copy original string
+#. Author of the plugin/theme
+msgid "Dion Designs"
+msgstr ""
+
+#. No translation — copy original string
+#. Author URI of the plugin/theme
+msgid "http://www.dion-designs.com"
+msgstr ""

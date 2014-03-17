@@ -1,0 +1,25 @@
+<?php
+/*
+	BridgeDD Integrator for phpBB
+	Copyright © 2014 by Dion Designs.
+	All Rights Reserved.
+*/
+$data = file_get_contents('data.txt');
+if (!$data) {exit;}
+
+$dd = unserialize($data);
+unlink('data.txt');
+
+define('WP_USE_THEMES', false);
+require($_SERVER['DOCUMENT_ROOT'] . $dd['wp_path'] . 'wp-blog-header.php');
+
+$msg = sprintf(__('Welcome, <strong>%1$s</strong>. Your %2$s account is not integrated with this site.', 'bridgedd'), $dd['wp_name'], 'WordPress') . '
+	<br /><br />' . __('Press the <strong>Log In</strong> button if you have an account here. Your two accounts will be integrated after logging in.', 'bridgedd') . '
+	<br />' . __('If you do not have an account here, press the <strong>Integrate My Account</strong> button and an account will be created.', 'bridgedd') . '
+	<br /><br />
+	<strong>
+	<a style="margin:0 50px" class="button" href="ucp.php?mode=login">' . __('Log In', 'bridgedd') . '</a>
+	<a class="button" href="' . $dd['wp_path'] . 'index.php?integrate=phpbb' . '">' . __('Integrate My Account', 'bridgedd') . '</a>
+	</strong>';
+wp_die($msg);
+?>
