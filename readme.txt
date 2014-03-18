@@ -12,9 +12,9 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 BridgeDD is a WordPress<->phpBB bridge that...works.
 
-You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of both applications. There is no need to worry about "integrating" existing members into both applications - BridgeDD handles it automatically using a breakthrough technology.
+You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of both applications. There is no need to worry about "integrating" existing members into both applications - BridgeDD handles it automatically.
 
-And best of all, the bridging is done using another breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
+And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
 You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides basic cross-posting capabilities as well as a recent-topics widget. Members can also ask support questions.
 
@@ -32,14 +32,14 @@ BridgeDD will then automatically integrate your two accounts.
 
 == Frequently Asked Questions ==
 
-Q: The path to phpBB doesn't work. Why?
-A: The path must be server-based and not a URL. BridgeDD automatically provides the initial (difficult) part of this path.
+**Q**: The path to phpBB doesn't work. Why?
+**A**: The path must be server-based and not a URL. BridgeDD automatically provides the initial (difficult) part of this path.
 
-Q: I entered the correct path to phpBB, but BridgeDD doesn't work. Why?
-A: The WordPress and phpBB installations must be in the same domain. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
+**Q**: I entered the correct path to phpBB, but BridgeDD doesn't work. Why?
+**A**: The WordPress and phpBB installations must be in the same domain. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
-Q: Got more questions?
-A: Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+**Q**: Got more questions?
+**A**: Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
 
