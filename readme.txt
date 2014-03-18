@@ -22,24 +22,24 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
-1. Log in to phpBB with your admin/founder account.
-2. Log in to WordPress with your admin account, and go to the Plugins page in the Dashboard
+1. If a bridge plugin is installed, deactivate it
+2. In a separate tab/window, log in to phpBB with your admin/founder account
 3. Upload the _bridgedd.zip_ file via the Install Plugins interface
-4. Activate the plugin
+4. Activate the BridgeDD plugin
 5. Enter the server path where your phpBB installation is located
 
-BridgeDD will then automatically integrate your two accounts.
+BridgeDD will automatically integrate your two accounts. You can then close the tab/window to phpBB.
 
 == Frequently Asked Questions ==
 
-**Q**: The path to phpBB doesn't work. Why?
-**A**: The path must be server-based and not a URL. BridgeDD automatically provides the initial (difficult) part of this path.
+= The path to phpBB doesn't work. Why? =
+The path must be server-based and not a URL. BridgeDD automatically provides the initial (difficult) part of this path.
 
-**Q**: I entered the correct path to phpBB, but BridgeDD doesn't work. Why?
-**A**: The WordPress and phpBB installations must be in the same domain. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
+= I entered the correct path to phpBB, but BridgeDD doesn't work. Why? =
+The WordPress and phpBB installations must be in the same domain. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
-**Q**: Got more questions?
-**A**: Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+= Got more questions? =
+Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
 
