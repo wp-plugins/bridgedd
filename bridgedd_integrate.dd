@@ -4,11 +4,15 @@
 	Copyright © 2014 by Dion Designs.
 	All Rights Reserved.
 */
-$data = file_get_contents('data.txt');
-if (!$data) {exit;}
+define('IN_BRIDGEDD', dirname(__FILE__));
+
+$data = @file_get_contents(IN_BRIDGEDD . '/data.txt');
+if (!$data) {
+	die('INTEGRATION ERROR');
+}
 
 $dd = unserialize($data);
-unlink('data.txt');
+unlink(IN_BRIDGEDD . '/data.txt');
 
 define('WP_USE_THEMES', false);
 require($_SERVER['DOCUMENT_ROOT'] . $dd['wp_path'] . 'wp-blog-header.php');
@@ -18,7 +22,7 @@ $msg = sprintf(__('Welcome, <strong>%1$s</strong>. Your %2$s account is not inte
 	<br />' . __('If you do not have an account here, press the <strong>Integrate My Account</strong> button and an account will be created.', 'bridgedd') . '
 	<br /><br />
 	<strong>
-	<a style="margin:0 50px" class="button" href="ucp.php?mode=login">' . __('Log In', 'bridgedd') . '</a>
+	<a style="margin:0 50px" class="button" href="ucp.php?mode=login">' . __('Log In', 'bridgedd-pro') . '</a>
 	<a class="button" href="' . $dd['wp_path'] . 'index.php?integrate=phpbb' . '">' . __('Integrate My Account', 'bridgedd') . '</a>
 	</strong>';
 wp_die($msg);
