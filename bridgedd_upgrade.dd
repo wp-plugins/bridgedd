@@ -1,0 +1,83 @@
+<?php
+/*
+	BridgeDD 1.2 Upgrade Code
+	Copyright © 2014 by Dion Designs.
+	All Rights Reserved.
+*/
+if (!defined('BRIDGEDD_UPGRADE')) {
+	exit;
+}
+
+function delete_files($target = false) {
+	if ($target) {
+		if (is_dir($target)) {
+			$files = glob($target . '/*');
+			foreach($files as $file) {
+				delete_files($file);
+			}
+			rmdir($target);
+		}
+		else {
+			@unlink($target);
+		}
+	}
+}
+
+function bridgedd_upgrade() {
+	global $db, $wpdb, $phpbb_path, $wp_cfg_data;
+
+	$sql = "CREATE TABLE IF NOT EXISTS bridgedd_xuser (
+		wp_id MEDIUMINT(8) UNSIGNED NOT NULL DEFAULT '0',
+		phpbb_id MEDIUMINT(8) UNSIGNED NOT NULL DEFAULT '1',
+		UNIQUE KEY wpid (wp_id),
+		UNIQUE KEY phpbbid (phpbb_id)
+	) DEFAULT CHARSET = utf8 COLLATE = utf8_bin";
+	$db->sql_query($sql);
+
+	$sql = 'TRUNCATE bridgedd_xuser';
+	$db->sql_query($sql);
+	$sql = 'INSERT INTO bridgedd_xuser SELECT wp_id, user_id FROM ' . USERS_TABLE . ' WHERE wp_id <> 0';
+	$db->sql_query($sql);
+	$sql = 'ALTER TABLE ' . USERS_TABLE . ' DROP wp_id';
+	$db->sql_query($sql);
+	$sql = 'ALTER TABLE ' . $wpdb->users . ' DROP phpbb_id';
+	$wpdb->query($sql);
+
+	$sql = 'UPDATE ' . CONFIG_TABLE . " SET config_value = '" . $db->sql_escape(serialize($wp_cfg_data)) . "' WHERE config_name = 'wp_bridge'";
+	$db->sql_query($sql);
+	@unlink($phpbb_path . 'cache/data_global.php');
+
+	$active = get_option('active_plugins');
+	$key = array_search('bridgedd-premium/bridgedd-premium.php', $active);
+	if ($key !== false) {
+		unset($active[$key]);
+		update_option('active_plugins', $active);
+		delete_files(WP_PLUGIN_DIR . '/bridgedd-premium');
+	}
+
+	header('Location: ' . $_SERVER['REQUEST_URI']);
+	exit;
+}
+
+if ($bridgedd_config['phpbb_bridge'] != '0.0') {
+	bridgedd_modfiles('uninstall');
+}
+bridgedd_modfiles('install', dirname(__FILE__) . '/bridgedd-upgrade.mod');
+copy(dirname(__FILE__) . '/bridgedd_integrate.dd', $phpbb_path . 'bridgedd_integrate.php');
+@unlink((dirname(__FILE__) . '/bridgedd.plugin');
+
+$delete_ary = get_option('bridgedd_delete');
+if (!$delete_ary) {
+	$delete_ary = array();
+}
+$delete_ary[] = array('f', __FILE__);
+update_option('bridgedd_delete', $delete_ary);
+
+$bridgedd_config['wp_reg'] = get_option('users_can_register');
+$bridgedd_config['avatar_src'] = 'phpbb';
+$bridgedd_config['xpost_title'] = '';
+$bridgedd_config['phpbb_bridge'] = $wp_version;
+update_option('bridgedd_config', $bridgedd_config);
+
+update_option('bridgedd', strval(BRIDGEDD));
+?>

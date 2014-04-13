@@ -1,27 +1,27 @@
 BridgeDD
-10102
+10200
 [<FILE_NAME>][wp]wp-includes/formatting.php
 [<SEARCH_ARRAY>]
-function make_clickable(
+function make_clickable( $text ) {
 [<REPLACE_ARRAY>]
 if (!defined('IN_PHPBB')) {
-	function make_clickable( $text ) {
-		return wp_make_clickable( $text );
+	function make_clickable($text) {
+		return wp_make_clickable($text);
 	}
 }
 
-function wp_make_clickable(
+function wp_make_clickable( $text ) {
 [<FILE_NAME>][wp]wp-includes/user.php
 [<SEARCH_ARRAY>]
-function validate_username(
+function validate_username( $username ) {
 [<REPLACE_ARRAY>]
 if (!defined('IN_PHPBB')) {
-	function validate_username( $username ) {
-		return wp_validate_username( $username );
+	function validate_username($username) {
+		return wp_validate_username($username);
 	}
 }
 
-function wp_validate_username(
+function wp_validate_username( $username ) {
 [<FILE_NAME>][phpbb]includes/functions_content.php
 [<SEARCH_ARRAY>]
 function make_clickable($text, $server_url = false, $class = 'postlink')
@@ -40,8 +40,7 @@ function validate_username($username, $allowed_username = false)
 	// Reset newest user info if appropriate
 	if ($config['newest_user_id'] == $user_id)
 [<MULTI>]
-			'user_inactive_reason'	=> ($row['user_type'] == USER_NORMAL) ? $reason : 0,
-		);
+		$auth->acl_clear_prefetch(array_keys($sql_statements));
 [<REPLACE_ARRAY>]
 if (!defined('WPINC')) {
 	function validate_username($username, $allowed_username = false) {
@@ -51,35 +50,26 @@ if (!defined('WPINC')) {
 
 function phpbb_validate_username($username, $allowed_username = false)
 [<MULTI>]
-	if (!empty($config['wp_user_table'])) {
-		global $dbwp;
-		$sql = 'UPDATE ' . $config['wp_user_table'] . ' SET phpbb_id = 1 WHERE phpbb_id = ' . $user_id;
-		$dbwp->sql_query($sql);
-	}
+	$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+	$db->sql_query($sql);
 
 	// Reset newest user info if appropriate
 	if ($config['newest_user_id'] == $user_id)
 [<MULTI>]
-			'user_inactive_reason'	=> ($row['user_type'] == USER_NORMAL) ? $reason : 0,
-		);
+		$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+		$db->sql_query($sql);
 
-		if (!empty($config['wp_user_table'])) {
-			$sql_ary += array(
-				'wp_id'					=> 0,
-			);
-		}
+		$auth->acl_clear_prefetch(array_keys($sql_statements));
 [<FILE_NAME>][phpbb]includes/functions_posting.php
 [<SEARCH_ARRAY>]
 	for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 [<MULTI>]
 		$decoded_message = false;
 [<REPLACE_ARRAY>]
-	$fpid = 0;
-	if ($forum_id == $config['wp_xpforum']) {
-		$sql = 'SELECT topic_first_post_id FROM ' . TOPICS_TABLE . ' WHERE topic_id = ' . $topic_id;
-		$result = $db->sql_query($sql);
-		$fpid = $db->sql_fetchfield('topic_first_post_id');
-	}
+	$sql = 'SELECT phpbb_id FROM bridgedd_xpost WHERE topic_id = ' . $topic_id;
+	$result = $db->sql_query($sql);
+	$fpid = $db->sql_fetchfield('phpbb_id');
+	$db->sql_freeresult($result);
 
 	for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 [<MULTI>]
@@ -118,12 +108,14 @@ function phpbb_validate_username($username, $allowed_username = false)
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
 			if (defined('WPINC') && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
-				$wp_id = intval($user->data['wp_id']);
+				$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
+				$result = $db->sql_query($sql);
+				$wp_id = (int) $db->sql_fetchfield('wp_id');
+				$db->sql_freeresult($result);
 				$wpid = request_var($config['cookie_name'] . '_wpid', 0, false, true);
 
 				// if not an integrated user, integrate them
 				if (!$wp_id && (is_user_logged_in() || $wpid)) {
-					global $wpdb;
 					if (is_user_logged_in()) {
 						global $current_user;
 						$wp_id = $current_user->ID;
@@ -132,18 +124,16 @@ function phpbb_validate_username($username, $allowed_username = false)
 						$wp_id = $wpid;
 						$user->set_cookie('wpid', 'x', time() - (365*24*3600));
 					}
-					$sql = 'UPDATE ' . $wpdb->users . ' SET phpbb_id = ' . $user->data['user_id'] . ' WHERE ID = ' . $wp_id;
-					$wpdb->query($sql);
-					$sql = 'UPDATE ' . USERS_TABLE . ' SET wp_id = ' . $wp_id . ' WHERE user_id = ' . $user->data['user_id'];
+					$sql = 'INSERT INTO bridgedd_xuser VALUES(' . $wp_id . ',' . $user->data['user_id'] . ')';
 					$db->sql_query($sql);
+					wp_clear_auth_cookie();
+					wp_set_auth_cookie($wp_id, $autologin);
 				}
-				wp_clear_auth_cookie();
-				wp_set_auth_cookie($wp_id, $autologin);
 			}
 
 [<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
-		'U_WP'					=> $config['wp_path'],
+		'U_WP'					=> $config['wp_url'],
 [<MULTI>]
 	if (!empty($dbwp)) {
 		$dbwp->sql_close();
@@ -158,30 +148,25 @@ function phpbb_validate_username($username, $allowed_username = false)
 			if (!empty($config['wp_user_table']) && $wpid && !defined('IN_LOGIN')) {
 				global $dbwp;
 
-				$sql = 'SELECT user_login, phpbb_id FROM ' . $config['wp_user_table'] . ' WHERE ID = ' . $wpid;
-				$result = $dbwp->sql_query($sql);
-				$row = $dbwp->sql_fetchrow($result);
-				$dbwp->sql_freeresult($result);
-				if ($row['phpbb_id'] != 1) {
-					$this->session_create(intval($row['phpbb_id']), false, true);
+				$sql = 'SELECT phpbb_id FROM bridgedd_xuser WHERE wp_id = ' . $wpid;
+				$result = $db->sql_query($sql);
+				$phpbb_id = (int) $db->sql_fetchfield('phpbb_id');
+				$db->sql_freeresult($result);
+				if ($phpbb_id) {
+					$this->session_create($phpbb_id, false, true);
 				}
 				else {
-					$wpname = $row['user_login'];
-					$msg = $db->sql_escape(utf8_clean_string($wpname));
-					$sql = 'SELECT user_id FROM ' . USERS_TABLE . " WHERE username_clean = '" . $msg . "'";
-					$result = $db->sql_query($sql);
-					$msg = $db->sql_fetchfield('user_id');
-					$db->sql_freeresult($result);
-
-					if (!$msg) {
-						$data = array(
-							'wp_name' => $wpname,
-							'wp_path' => $config['wp_path'],
-						);
-						file_put_contents($phpbb_root_path . 'data.txt', serialize($data));
-						header('Location: ' . $phpbb_root_path . 'bridgedd_integrate.php');
-						exit;
-					}
+					$sql = 'SELECT user_login FROM ' . $config['wp_user_table'] . ' WHERE ID = ' . $wpid;
+					$result = $dbwp->sql_query($sql);
+					$wpname = $dbwp->sql_fetchfield('user_login');
+					$dbwp->sql_freeresult($result);
+					$data = array(
+						'wp_name' => $wpname,
+						'wp_path' => $config['wp_path'],
+					);
+					file_put_contents($phpbb_root_path . 'data.txt', serialize($data));
+					header('Location: ' . $phpbb_root_path . 'bridgedd_integrate.php');
+					exit;
 				}
 			}
 			$this->lang_name = basename($config['default_lang']);
@@ -193,42 +178,56 @@ $config = $cache->obtain_config();
 $config = $cache->obtain_config();
 
 if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
+	@ini_set('open_basedir', '');
 	$wp_dd = unserialize($config['wp_bridge']);
-	$config['wp_path'] = $wp_dd['path'];
+	$config['wp_url'] = $wp_dd['path'];
+	$config['wp_path'] = substr($config['wp_url'], strpos($config['wp_url'], '//') + 2);
+	$config['wp_path'] = substr($config['wp_path'], strpos($config['wp_path'], '/'));
 	$config['wp_xpforum'] = $wp_dd['xpforum'];
 	$wp_dd = unserialize($config['wp_db']);
+	include_once($phpbb_root_path . 'includes/db/mysqli.' . $phpEx);
 	$dbwp = new dbal_mysqli();
 	$dbwp->sql_connect($wp_dd['hs'], $wp_dd['us'], $wp_dd['pw'], $wp_dd['nm'], '', false, false);
+	$config['wp_prefix'] = $wp_dd['pf'];
 	$config['wp_user_table'] = $wp_dd['pf'] . 'users';
 	$config['wp_option_table'] = $wp_dd['pf'] . 'options';
 	unset($wp_dd);
 }
 [<FILE_NAME>][phpbb]ucp.php
 [<SEARCH_ARRAY>]
-	define('IN_LOGIN', true);
-}
+		login_box(request_var('redirect', "index.$phpEx"));
 [<MULTI>]
 		if ($user->data['user_id'] != ANONYMOUS && isset($_GET['sid']) && !is_array($_GET['sid']) && $_GET['sid'] === $user->session_id)
 		{
 [<REPLACE_ARRAY>]
-	define('IN_LOGIN', true);
-}
+		if (!empty($config['wp_path']) && isset($_POST['login'])) {
+			define('IN_BRIDGEDD', $phpbb_root_path);
+			define('WP_USE_THEMES', false);
+			require($_SERVER['DOCUMENT_ROOT'] . $config['wp_path'] . 'wp-blog-header.php');
+			$phpbb_root_path = IN_BRIDGEDD;
+		}
 
-if (!empty($config['wp_path']) && ($mode == 'login' || $mode == 'logout')) {
-	define('WP_USE_THEMES', false);
-	require($_SERVER['DOCUMENT_ROOT'] . $config['wp_path'] . 'wp-blog-header.php');
-}
+		login_box(request_var('redirect', "index.$phpEx"));
 [<MULTI>]
 		if ($user->data['user_id'] != ANONYMOUS && isset($_GET['sid']) && !is_array($_GET['sid']) && $_GET['sid'] === $user->session_id)
 		{
-			$wp_id = intval($user->data['wp_id']);
-			if (defined('WPINC') && $wp_id) {
-				bridgedd_cookie($wp_id, '; expires=' . gmdate('D, d-M-Y H:i:s \\G\\M\\T', time() - (365*24*3600)));
+			$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
+			$result = $db->sql_query($sql);
+			$wp_id = (int) $db->sql_fetchfield('wp_id');
+			$db->sql_freeresult($result);
+			if (!empty($config['wp_path']) && $wp_id) {
+				define('IN_BRIDGEDD', $phpbb_root_path);
+				define('WP_USE_THEMES', false);
+				require($_SERVER['DOCUMENT_ROOT'] . $config['wp_path'] . 'wp-blog-header.php');
+				$phpbb_root_path = IN_BRIDGEDD;
 				wp_clear_auth_cookie();
-				wp_set_current_user(0);
+				$user->set_cookie('wpid', 'x', time() - (365*24*3600));
 			}
 [<FILE_NAME>][phpbb]posting.php
 [<SEARCH_ARRAY>]
+		$sql = 'SELECT f.*, t.*
+			FROM ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . " f
+[<MULTI>]
 		$sql = 'SELECT f.*, t.*, p.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_sig_bbcode_bitfield
 			FROM ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . ' f, ' . USERS_TABLE . " u
 [<MULTI>]
@@ -244,7 +243,11 @@ $message_parser->decode_message($post_data['bbcode_uid']);
 [<MULTI>]
 			$next_post_id = delete_post($forum_id, $topic_id, $post_id, $data);
 [<REPLACE_ARRAY>]
-		$sql = 'SELECT f.*, t.*, p.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_sig_bbcode_bitfield, xp.wp_id
+		$sql = 'SELECT f.*, t.*, xp.wp_id, xp.phpbb_id
+			FROM ' . FORUMS_TABLE . ' f, ' . TOPICS_TABLE . " t
+			LEFT JOIN bridgedd_xpost xp ON (xp.topic_id = t.topic_id)
+[<MULTI>]
+		$sql = 'SELECT f.*, t.*, p.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_sig_bbcode_bitfield, xp.wp_id, xp.phpbb_id
 			FROM ' . POSTS_TABLE . ' p, ' . FORUMS_TABLE . ' f, ' . USERS_TABLE . ' u, ' . TOPICS_TABLE . " t
 			LEFT JOIN bridgedd_xpost xp ON (xp.phpbb_id = $post_id AND xp.topic_id = t.topic_id)
 [<MULTI>]
@@ -253,7 +256,7 @@ $message_parser->decode_message($post_data['bbcode_uid']);
 }
 
 $xpost = false;
-if ($post_data['wp_id']) {
+if (!empty($post_data['wp_id'])) {
 	if ($mode == 'quote') {
 		$mode = 'reply';
 		$post_id = 0;
@@ -288,8 +291,8 @@ else {
 	$message_parser->decode_message($post_data['bbcode_uid']);
 }
 [<MULTI>]
-			if ($post_data['wp_id']) {
-				$sql = 'DELETE FROM bridgedd_xpost WHERE wp_id = ' . $post_data['wp_id'];
+			if (!empty($post_data['phpbb_id']) && $post_data['phpbb_id'] == $post_id) {
+				$sql = 'DELETE FROM bridgedd_xpost WHERE phpbb_id = ' . $post_id;
 				$db->sql_query($sql);
 			}
 
