@@ -3,8 +3,8 @@ Contributors: DionDesigns
 Donate link: http://www.diondesigns.org/bridgedd/subscribe/
 Tags: bridge,integration,phpbb
 Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: trunk
+Tested up to: 3.8.2
+Stable tag: 1.2
 
 BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
@@ -22,33 +22,59 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
-1. If a bridge plugin is installed, deactivate it
-2. In a separate tab/window, log in to phpBB with your admin/founder account
-3. Upload the _bridgedd.zip_ file via the Install Plugins interface
-4. Activate the BridgeDD plugin
-5. Enter the server path where your phpBB installation is located
-
-BridgeDD will automatically integrate your two accounts. You can then close the tab/window to phpBB.
+1. Upload the _bridgedd.zip_ file via the Install Plugins interface
+2. If you have installed a PHP cache extension such as _APC_, _OPcache_, or _XCache_, temporarily disable it
+3. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, deactivate it
+4. In a separate tab/window, log in to phpBB with your admin/founder account
+5. Activate the BridgeDD plugin
+6. Select your phpBB installation in BridgeDD Settings
+7. Verify that the displayed URL and board preview are correct, and click **Save Changes**
+8. Select the remaining BridgeDD settings options, and click **Save Changes** again
+9. Close the tab/window to phpBB
+10. Re-enable your PHP cache entension
 
 == Frequently Asked Questions ==
 
-= The path to phpBB doesn't work. Why? =
-The path must be server-based and not a URL. BridgeDD automatically provides the initial (difficult) part of this path.
+= BridgeDD doesn't work. Why? =
+The most common cause of problems is trying to activate and configure BridgeDD while cache programs are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. Cache programs such as APC, OPcache, or XCache can interfere with this process. Please disable these programs before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
 
-= I entered the correct path to phpBB, but BridgeDD doesn't work. Why? =
-The WordPress and phpBB installations must be in the same domain. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
+= I selected my phpBB installation, but the URL and preview for my board are wrong. =
+This means that the settings for your phpBB board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
+
+= I selected my phpBB installation, things seem to be OK, but BridgeDD doesn't integrate logins and logouts. =
+The WordPress and phpBB installations must be in the same domain, and WordPress must be able to save a cookie that phpBB can read. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
 = Got more questions? =
 Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
 
+= 1.2 =
+
+* Completely rewritten session integration, resulting in less memory usage and greater compatibility with WordPress plugins and phpBB MODS
+* Greatly improved method to select a phpBB installation
+* Includes the Recent Board Topics widget from BridgeDD Premium
+* Cleaned-up user interface
+* Russian and Ukranian translations - _by Maxim Tkachenko_
+* Numerous small bug fixes
+
 = 1.1.2 =
 
 First publicly-available version.
+Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
+
+== Upgrade Notice ==
+
+= 1.2 =
+
+Bridgedd 1.2 uses less memory than previous versions, is easier to configure, and now includes the Recent Board Topics widget from BridgeDD Premium!
 
 == Translations ==
 
 If you have translated this plugin into your language, feel free to post the PO file on the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
-The following translations were done by [**FextraLife**](http://fextralife.com) and are currently available: _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
+The following translations were done by [**FextraLife**](http://fextralife.com):
+_Spanish, French, German, Japanese, Polish, Portuguese, Italian_
+
+The following translations were done by Maxim Tkachenko:
+_Russian, Ukranian_
