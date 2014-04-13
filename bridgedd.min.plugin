@@ -500,7 +500,7 @@ $bridgedd_config['phpbb_bridge'] = '0.0';
 $bridgedd_config['phpbb_path'] = '';
 update_option('bridgedd_config', $bridgedd_config);
 }
-wp_die('<style type="text/css">pre{overflow:auto}#buttondiv{margin:-25px 0 20px;text-align:center}</style><div id="buttondiv"><a class="button" href="options-general.php?page=bridgedd.php">Return</a></div><br />' . implode('<hr />', $error));
+wp_die('<style type="text/css">pre{overflow:auto}#buttondiv{margin:-25px 0 20px;font-weight:bold;text-align:center}</style><div id="buttondiv"><a class="button" href="options-general.php?page=bridgedd.php">' . sprintf(__('&larr; Back to %s'), 'BridgeDD') . '</a></div><br />' . implode('<hr />', $error));
 }
 else {
 for ($i=1; $i<$modsize; $i++) {
