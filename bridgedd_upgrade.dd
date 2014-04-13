@@ -63,8 +63,9 @@ if ($bridgedd_config['phpbb_bridge'] != '0.0') {
 	bridgedd_modfiles('uninstall');
 }
 bridgedd_modfiles('install', dirname(__FILE__) . '/bridgedd-upgrade.mod');
+copy(dirname(__FILE__) . '/bridgedd_check.min.dd', WP_PLUGIN_DIR . '/bridgedd_check.php');
 copy(dirname(__FILE__) . '/bridgedd_integrate.dd', $phpbb_path . 'bridgedd_integrate.php');
-@unlink((dirname(__FILE__) . '/bridgedd.plugin');
+@unlink(dirname(__FILE__) . '/bridgedd.plugin');
 
 $delete_ary = get_option('bridgedd_delete');
 if (!$delete_ary) {
