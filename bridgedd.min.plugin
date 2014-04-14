@@ -473,14 +473,14 @@ if (strpos($newfile[$i], $replace[$j]) !== false) {
 $search[$j] = $replace[$j];
 }
 else if (strpos($newfile[$i], $search[$j]) === false) {
-$error[] = sprintf(__('Cannot locate the following in <strong>%s</strong>:'), $fname[$i]) . '<br /><br /><pre>' . htmlspecialchars($search[$j]) . '</pre>';
+$error[] = sprintf(__('Cannot locate the following in <strong>%s</strong>:', 'bridgedd'), $fname[$i]) . '<br /><br /><pre>' . htmlspecialchars($search[$j]) . '</pre>';
 }
 }
 }
 else {
 for ($j=0; $j<sizeof($replace); $j++) {
 if (strpos($newfile[$i], $replace[$j]) === false) {
-$error[] = sprintf(__('Cannot locate the following in <strong>%s</strong>:'), $fname[$i]) . '<br /><br /><pre>' . htmlspecialchars($replace[$j]) . '</pre>';
+$error[] = sprintf(__('Cannot locate the following in <strong>%s</strong>:', 'bridgedd'), $fname[$i]) . '<br /><br /><pre>' . htmlspecialchars($replace[$j]) . '</pre>';
 }
 }
 }
