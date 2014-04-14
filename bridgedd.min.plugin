@@ -414,7 +414,7 @@ $bridgedd_config = array(
 'xpost_class'=> '',
 );
 add_option('bridgedd_config', $bridgedd_config);
-copy(dirname(__FILE__) . '/bridgedd_check.dd', WP_PLUGIN_DIR . '/bridgedd_check.php');
+copy(dirname(__FILE__) . '/bridgedd_check.min.dd', WP_PLUGIN_DIR . '/bridgedd_check.php');
 }
 add_option('bridgedd_redirect', $redirect);
 }
