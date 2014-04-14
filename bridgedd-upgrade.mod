@@ -228,8 +228,8 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 		$sql = 'SELECT f.*, t.*
 			FROM ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . " f
 [<MULTI>]
-		$sql = 'SELECT f.*, t.*, p.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_sig_bbcode_bitfield
 			FROM ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . ' f, ' . USERS_TABLE . " u
+			WHERE p.post_id = $post_id
 [<MULTI>]
 		trigger_error('CANNOT_EDIT_POST_LOCKED');
 	}
@@ -247,9 +247,10 @@ $message_parser->decode_message($post_data['bbcode_uid']);
 			FROM ' . FORUMS_TABLE . ' f, ' . TOPICS_TABLE . " t
 			LEFT JOIN bridgedd_xpost xp ON (xp.topic_id = t.topic_id)
 [<MULTI>]
-		$sql = 'SELECT f.*, t.*, p.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_sig_bbcode_bitfield, xp.wp_id, xp.phpbb_id
+			, xp.wp_id, xp.phpbb_id
 			FROM ' . POSTS_TABLE . ' p, ' . FORUMS_TABLE . ' f, ' . USERS_TABLE . ' u, ' . TOPICS_TABLE . " t
 			LEFT JOIN bridgedd_xpost xp ON (xp.phpbb_id = $post_id AND xp.topic_id = t.topic_id)
+			WHERE p.post_id = $post_id
 [<MULTI>]
 		trigger_error('CANNOT_EDIT_POST_LOCKED');
 	}

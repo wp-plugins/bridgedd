@@ -159,7 +159,12 @@ require($phpbb_root_path . 'includes/constants.' . $phpEx);
 require($phpbb_root_path . 'includes/db/' . $dbms . '.' . $phpEx);
 global $dduser, $cache, $db, $config;
 $dduser = new bridgedd_user();
+if (class_exists('phpbb_cache')) {
+$cache = new phpbb_cache();
+}
+else {
 $cache = new cache();
+}
 $db = new $sql_db();
 $db->sql_connect($dbhost, $dbuser, $dbpasswd, $dbname, $dbport, false, defined('PHPBB_DB_NEW_LINK') ? PHPBB_DB_NEW_LINK : false);
 if (defined('BRIDGEDD_UPGRADE') && function_exists('bridgedd_upgrade')) {
