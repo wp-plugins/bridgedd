@@ -373,6 +373,23 @@ global $db;
 $sql = 'DELETE FROM bridgedd_xuser WHERE wp_id = ' . $id;
 $db->sql_query($sql);
 }
+function bridgedd_phpbb_link($menu) {
+global $phpbb_relative_path, $config;
+$menu->remove_node('my-account');
+$menu->add_node(array(
+'id'=> 'phpbb_link',
+'title'=> __('Board', 'bridgedd'),
+'href'=> $phpbb_relative_path . 'index.php',
+'parent'=> false,
+'meta'=> array('html' => '<style type="text/css">#wpadminbar #wp-admin-bar-phpbb_link{display:block;float:right;padding-right:5px}#wpadminbar #wp-admin-bar-phpbb_link > a{font-size:1.25em;font-weight:bold}#wp-admin-bar-phpbb_link .ab-sub-wrapper{right:0}</style>'),
+));
+$menu->add_node(array(
+'id'=> 'phpbb_sublink',
+'title'=> $config['sitename'],
+'href'=> $phpbb_relative_path . 'index.php',
+'parent'=> 'phpbb_link',
+));
+}
 if (empty($config['wp_bridge'])) {
 $sql = 'INSERT INTO ' . CONFIG_TABLE . " (config_name,config_value) VALUES ('wp_bridge','" . $db->sql_escape(serialize($wp_cfg_data)) . "'),('wp_db','" . serialize($wp_db_data) . "')";
 $db->sql_query($sql);
