@@ -43,7 +43,9 @@ The first is Tapatalk. Tapatalk installs its own PHP code and completely bypasse
 The second is themes from RocketTheme. These themes are designed for integrating with Joomla, not WordPress, and they are well known for their compatibility issues with phpBB MODS. If you are using a RocketTheme theme, please visit the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) for information on how to resolve the compatibility issues.
 
 = BridgeDD doesn't work. Why? =
-The most common cause of problems is trying to activate and configure BridgeDD while cache programs are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. Cache programs such as APC, OPcache, or XCache can interfere with this process. Please disable these programs before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
+The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as APC, OPcache, XCache, or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
+
+**NOTE:** You must also disable these cache extensions before you deactivate BridgeDD.
 
 = I selected my phpBB installation, but the URL and preview for my board are wrong. =
 This means that the settings for your phpBB board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
