@@ -179,7 +179,6 @@ $config = $cache->obtain_config();
 
 if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 	@ini_set('open_basedir', '');
-	$_SERVER['DOCUMENT_ROOT'] = substr(getenv('SCRIPT_FILENAME'), 0, strpos(getenv('SCRIPT_FILENAME'), getenv('SCRIPT_NAME')));
 	$wp_dd = unserialize($config['wp_bridge']);
 	$config['wp_url'] = $wp_dd['path'];
 	$config['wp_path'] = substr($config['wp_url'], strpos($config['wp_url'], '//') + 2);

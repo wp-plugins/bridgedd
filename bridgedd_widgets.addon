@@ -103,7 +103,10 @@ class bridgedd_widget_recent_topics extends WP_Widget {
 }
 
 function bridgedd_widgets_setup() {
-	register_widget('bridgedd_widget_recent_topics');
+	global $phpbb_path;
+	if ($phpbb_path) {
+		register_widget('bridgedd_widget_recent_topics');
+	}
 }
 
 add_action('widgets_init', 'bridgedd_widgets_setup');

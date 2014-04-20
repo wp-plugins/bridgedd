@@ -4,7 +4,7 @@ Donate link: http://www.diondesigns.org/bridgedd/subscribe/
 Tags: bridge,integration,phpbb
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 1.2
+Stable tag: trunk
 
 BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
@@ -12,18 +12,24 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 BridgeDD is a WordPress&harr;phpBB bridge that...works.
 
-You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of both applications. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
+You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of the other application on their next visit to that application. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
 
 And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
-You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides basic cross-posting capabilities as well as a recent-topics widget. Members can also ask support questions.
+You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides cross-posting capabilities. Members can also ask support questions.
 
 Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, footer, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create a lightweight, seamless bridge.
 
 == Installation ==
 
+= Installation notes =
+BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
+
+BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
+
+= Installation instructions =
 1. Upload the _bridgedd.zip_ file via the Install Plugins interface
-2. If you have installed a PHP cache extension such as _APC_, _OPcache_, or _XCache_, temporarily disable it
+2. If you have installed a PHP cache extension such as _APC_, _OPcache_, _XCache_, or _eAccelerator_, temporarily disable it
 3. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, deactivate it
 4. In a separate tab/window, log in to phpBB with your admin/founder account
 5. Activate the BridgeDD plugin
@@ -36,11 +42,11 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 == Frequently Asked Questions ==
 
 = What are the known compatibility issues? =
-There are two known compatibility issues.
+There are two known compatibility issues, one serious and one that can be resolved.
 
-The first is Tapatalk. Tapatalk installs its own PHP code and completely bypasses the phpBB code. This is why Tapatalk doesn't support phpBB MODS and a number of built-in phpBB features. (It is also why you lose all ad revenue from Tapatalk users if your phpBB boards contains ads.) Since a bridge application must load at least a part of phpBB, there will always be a compatibility issue with Tapatalk. Please consider using a mobile/responsive phpBB theme instead of Tapatalk. If Tapatalk is installed, **install BridgeDD at your own risk**.
+The first is Tapatalk. Tapatalk installs its own PHP code and completely bypasses the phpBB code. This is why Tapatalk doesn't support phpBB MODS and a number of built-in phpBB features. (It is also why you lose all ad revenue from Tapatalk users if your phpBB boards contains ads.) Since a bridge application must load at least a part of phpBB, there will always be a compatibility issue with Tapatalk. Please consider using a mobile/responsive phpBB theme instead of Tapatalk. **Tapatalk is NOT supported**, so if you have installed Tapatalk, **install BridgeDD at your own risk**.
 
-The second is themes from RocketTheme. These themes are designed for integrating with Joomla, not WordPress, and they are well known for their compatibility issues with phpBB MODS. If you are using a RocketTheme theme, please visit the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) for information on how to resolve the compatibility issues.
+The second is phpBB themes from RocketTheme. These themes are designed for integrating with Joomla, not WordPress, and they are well known for their compatibility issues with phpBB MODS. If you are using a RocketTheme phpBB theme, please visit the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) for information on how to resolve the compatibility issues.
 
 = BridgeDD doesn't work. Why? =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as APC, OPcache, XCache, or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
@@ -58,6 +64,16 @@ Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd
 
 == Changelog ==
 
+= 1.2.1 =
+
+* Added support for phpBBex and Advanced Block phpBB MOD
+* Added support for GoDaddy (and other) hosting that define selected $_SERVER globals incorrectly
+* Tapatalk is officially unsupported
+* Bug fix: Recent Board Topics widget could be selected when BridgeDD was activated but not configured
+* Bug fix: PHP error message displayed when admin bar is active and user is on home page
+* Much more detailed FAQ
+* Minor bug fixes and display enhancements
+
 = 1.2 =
 
 * Completely rewritten session integration, resulting in less memory usage and greater compatibility with WordPress plugins and phpBB MODS
@@ -74,9 +90,13 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 == Upgrade Notice ==
 
+= 1.2.1 =
+
+BridgeDD 1.2.1 resolves several compatibility problems (GoDaddy hosting, phpBBex, several phpBB MODs), and fixes a number of bugs.
+
 = 1.2 =
 
-Bridgedd 1.2 uses less memory than previous versions, is easier to configure, and now includes the Recent Board Topics widget from BridgeDD Premium!
+BridgeDD 1.2 uses less memory than previous versions, is easier to configure, and now includes the Recent Board Topics widget from BridgeDD Premium!
 
 == Translations ==
 
