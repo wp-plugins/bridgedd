@@ -115,6 +115,10 @@ if (file_exists(dirname(__FILE__) . '/bridgedd_widgets.min.addon')) {
 	@unlink(dirname(__FILE__) . '/bridgedd_widgets.addon');
 }
 
+if ($version < 10202) {
+	@copy(dirname(__FILE__) . '/bridgedd_check.min.dd', BRIDGEDD_PATH . '/bridgedd_check.php');
+}
+
 $delete_ary = get_option('bridgedd_delete');
 if (!$delete_ary) {
 	$delete_ary = array();

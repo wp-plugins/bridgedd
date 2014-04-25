@@ -11,7 +11,7 @@ if (!defined('BRIDGEDD')) {
 class bridgedd_widget_recent_topics extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array('classname' => 'bridgedd_recent_topics', 'description' => __('Shows the most recent topics on your phpBB board', 'bridgedd') );
-		parent::__construct('bridgedd_widget_recent_topics', __('Recent Board Topics', 'bridgedd'), $widget_ops);
+		parent::__construct('bridgedd_widget_recent_topics', 'BridgeDD: ' . __('Recent Board Topics', 'bridgedd'), $widget_ops);
 	}
 	
 	function widget($args, $instance) {

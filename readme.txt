@@ -12,15 +12,17 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 BridgeDD is a WordPress&harr;phpBB bridge that...works.
 
-You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of the other application on their next visit to that application. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
+You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. When someone registers to become a member, they automatically become a member of both applications. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
 
 And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
-You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides cross-posting capabilities. Members can also ask support questions.
+You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides basic cross-posting capabilities as well as a recent-topics widget. Members can also ask support questions.
 
-Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, footer, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create a lightweight, seamless bridge.
+Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, menus, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create a lightweight, seamless bridge.
 
 == Installation ==
+
+= Read the [READ ME FIRST](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD! =
 
 = Installation notes =
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
@@ -64,6 +66,12 @@ Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd
 
 == Changelog ==
 
+= 1.2.2 =
+
+* Fixed issues with GoDaddy (and other) hosting that define selected $_SERVER globals incorrectly
+* New update process
+* Several bug fixes with translation text
+
 = 1.2.1 =
 
 * Added support for phpBBex and Advanced Block phpBB MOD
@@ -89,6 +97,10 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+
+BridgeDD 1.2.2 is a bug fix update. If you use GoDaddy for hosting, this update is mandatory!
 
 = 1.2.1 =
 
