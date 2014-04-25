@@ -43,12 +43,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 == Frequently Asked Questions ==
 
-= What are the known compatibility issues? =
-There are two known compatibility issues, one serious and one that can be resolved.
-
-The first is Tapatalk. Tapatalk installs its own PHP code and completely bypasses the phpBB code. This is why Tapatalk doesn't support phpBB MODS and a number of built-in phpBB features. (It is also why you lose all ad revenue from Tapatalk users if your phpBB boards contains ads.) Since a bridge application must load at least a part of phpBB, there will always be a compatibility issue with Tapatalk. Please consider using a mobile/responsive phpBB theme instead of Tapatalk. **Tapatalk is NOT supported**, so if you have installed Tapatalk, **install BridgeDD at your own risk**.
-
-The second is phpBB themes from RocketTheme. These themes are designed for integrating with Joomla, not WordPress, and they are well known for their compatibility issues with phpBB MODS. If you are using a RocketTheme phpBB theme, please visit the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) for information on how to resolve the compatibility issues.
+The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. Why? =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as APC, OPcache, XCache, or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
