@@ -22,7 +22,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
-= Read the [READ ME FIRST](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD! =
+Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
 = Installation notes =
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
