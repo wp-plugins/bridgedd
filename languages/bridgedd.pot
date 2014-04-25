@@ -1,10 +1,9 @@
 # Copyright (C) 2014 Dion Designs
-# This file is distributed under the same license as the BridgeDD&trade; package.
+# This file is distributed under the same license as the BridgeDD package.
 msgid ""
 msgstr ""
-"Project-Id-Version: BridgeDD 1.1.2\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/bridgedd\n"
-"POT-Creation-Date: 2014-02-17 03:11:15+00:00\n"
+"Project-Id-Version: BridgeDD 1.2\n"
+"POT-Creation-Date: 2014-04-08 05:41:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +11,14 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
+#. do not translate the term: WordPress Multisite
+#: bridgedd.plugin:77
+msgid "WordPress Multisite not supported."
+msgstr ""
+
+#. do not translate the term: WordPress
 #. Do not translate HTML tags
-#: bridgedd.plugin:126
+#: bridgedd.plugin:125
 msgid "<strong>ERROR</strong>: WordPress Integration failed."
 msgstr ""
 
@@ -21,6 +26,7 @@ msgstr ""
 msgid "Please contact the board administrator."
 msgstr ""
 
+#. do not translate the term: phpBB
 #. do not translate HTML tags
 #: bridgedd.plugin:154
 msgid "<strong>ERROR</strong>: Your username already exists in phpBB."
@@ -60,25 +66,33 @@ msgstr ""
 msgid "Board"
 msgstr ""
 
+#. do not translate the term: phpBB
 #: bridgedd.plugin:306
 msgid "Please set all other User options in phpBB."
 msgstr ""
 
-#: bridgedd.plugin:318
+#: bridgedd.plugin:318 bridgedd_widgets.addon:56
 msgid "by"
 msgstr ""
 
+#. do not translate the term: phpBB
 #. %s = plugin name
 #: bridgedd.plugin:430
 msgid "%s has established a connection to phpBB."
 msgstr ""
 
+#. do not translate the term: phpBB
 #. %s = file name
-#. Do not translate HTML tags
+#. do not translate HTML tags
 #: bridgedd.plugin:455
 msgid ""
 "The path specified is not the correct absolute path to the phpBB <code>%s</"
 "code> file."
+msgstr ""
+
+#. do not translate the terms: BridgeDD, phpBB
+#: bridgedd.plugin:460
+msgid "BridgeDD is not connected to phpBB"
 msgstr ""
 
 #. %s = plugin name
@@ -86,28 +100,49 @@ msgstr ""
 msgid "%s Settings"
 msgstr ""
 
+#. do not translate the term: phpBB
 #. %s = file name
 #. do not translate HTML tags
 #: bridgedd.plugin:466
 msgid "Absolute path to phpBB <code>%s</code> file:"
 msgstr ""
 
+#. do not translate the term: phpBB
+#: bridgedd.plugin:469
+msgid "Select a phpBB installation:"
+msgstr ""
+
 #: bridgedd.plugin:472
 msgid "Application that should handle user registrations:"
+msgstr ""
+
+#. do not translate the term: BridgeDD
+#: bridgedd.plugin:477
+msgid "Avatar source for BridgeDD widgets:"
+msgstr ""
+
+#: bridgedd.plugin:478 bridgedd_xpost.addon:149
+msgid "The following is an excerpt of a blog article."
 msgstr ""
 
 #: bridgedd.plugin:481
 msgid "Save Changes"
 msgstr ""
 
-#: bridgedd.plugin:491
-msgid ""
-"For support, and free WordPress plugins and phpBB modifications, become a "
-"member of our phpBB board:"
+#. do not translate the term: phpBB
+#: bridgedd.plugin:493
+msgid "ERROR: No phpBB installations were found on your server."
 msgstr ""
 
 #: bridgedd.plugin:502 bridgedd.plugin:506
 msgid "Settings"
+msgstr ""
+
+#. Do not translate the terms: phpBB, WordPress
+#: bridgedd.plugin:507
+msgid ""
+"For support, and free WordPress plugins and phpBB modifications, become a "
+"member of our phpBB board:"
 msgstr ""
 
 #. %s = file name
@@ -127,26 +162,112 @@ msgstr ""
 msgid "Cannot locate the following in <strong>%s</strong>:"
 msgstr ""
 
-#. No translation — copy original string
-#. Plugin Name of the plugin/theme
-msgid "BridgeDD"
+#. do not translate the term: phpBB
+#: bridgedd_widgets.addon:13
+msgid "Shows the most recent topics on your phpBB board"
 msgstr ""
 
-#. No translation — copy original string
-#. Plugin URI of the plugin/theme
-msgid "http://www.diondesigns.org/bridgedd/"
+#: bridgedd_widgets.addon:14 bridgedd_widgets.addon:20
+msgid "Recent Board Topics"
 msgstr ""
 
-#. Description of the plugin/theme
+#: bridgedd_widgets.addon:64
+msgid "No Recent Posts"
+msgstr ""
+
+#: bridgedd_widgets.addon:89
+msgid "Title: "
+msgstr ""
+
+#: bridgedd_widgets.addon:126 bridgedd_widgets.addon:237
+msgid "Use internal widget CSS:"
+msgstr ""
+
+#: bridgedd_widgets.addon:130
+msgid "Number of recent topics (3-10):"
+msgstr ""
+
+#: bridgedd_widgets.addon:133
+msgid "Number of recent topics to display: "
+msgstr ""
+
+#: bridgedd_widgets.addon:137 bridgedd_widgets.addon:138
+msgid "Login/Logout"
+msgstr ""
+
+#: bridgedd_widgets.addon:242
+msgid "CSS avatar size (48-96 pixels):"
+msgstr ""
+
+#: bridgedd_widgets.addon:243
+msgid "CSS avatar location:"
+msgstr ""
+
+#: bridgedd_xpost.addon:68
+msgid "If you would like to cross-post an excerpt, please create an excerpt."
+msgstr ""
+
+#: bridgedd_xpost.addon:69
+msgid "Click the Screen Options tab above to display the Excerpt box."
+msgstr ""
+
+#: bridgedd_xpost.addon:88
+msgid "Read Full Article"
+msgstr ""
+
+#: bridgedd_xpost.addon:230
+msgid "Default forum for cross-posted articles:"
+msgstr ""
+
+#. do not translate the term: phpBB
+#: bridgedd_xpost.addon:193
+msgid "phpBB forum where articles will be cross-posted:"
+msgstr ""
+
+#: bridgedd_xpost.addon:195
+msgid "Cross-Posting Disabled"
+msgstr ""
+
+#: bridgedd_xpost.addon:252
+msgid "Excerpt title for cross-posted articles:"
+msgstr ""
+
+#: bridgedd_xpost.addon:214
+msgid "Optional class name for cross-post buttons:"
+msgstr ""
+
+#: bridgedd_xpost.addon:254
+msgid "From:"
+msgstr ""
+
+#: bridgedd_xpost.addon:255
+msgid "View the Discussion"
+msgstr ""
+
+#: bridgedd_xpost.addon:257
+msgid "Make A Comment"
+msgstr ""
+
+#: bridgedd_xpost.addon:242
+msgid "Cross-posted to forum:"
+msgstr ""
+
+#: bridgedd_xpost.addon:297
+msgid "Cross-post to forum:"
+msgstr ""
+
+#. do not translate the terms: BridgeDD, BridgeDD Premium
+msgid "BridgeDD is not active — BridgeDD Premium deactivated"
+msgstr ""
+
+#. do not translate the terms: phpBB, WordPress
 msgid "Creates a bridge between phpBB and WordPress"
 msgstr ""
 
-#. No translation — copy original string
-#. Author of the plugin/theme
-msgid "Dion Designs"
+#. do not translate the term: BridgeDD
+msgid "Extends BridgeDD with additional features"
 msgstr ""
 
-#. No translation — copy original string
-#. Author URI of the plugin/theme
-msgid "http://www.dion-designs.com"
+#. do not translate the term: BridgeDD
+msgid "The ultimate bridge, available exclusively to BridgeDD Subscribers"
 msgstr ""

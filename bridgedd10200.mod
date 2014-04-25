@@ -1,5 +1,5 @@
 BridgeDD
-10202
+10201
 [<FILE_NAME>][wp]wp-includes/formatting.php
 [<SEARCH_ARRAY>]
 function make_clickable( $text ) {
@@ -179,7 +179,6 @@ $config = $cache->obtain_config();
 
 if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 	@ini_set('open_basedir', '');
-	define('SERVER_DOCUMENT_ROOT', substr(getenv('SCRIPT_FILENAME'), 0, strpos(getenv('SCRIPT_FILENAME'), getenv('SCRIPT_NAME'))));
 	$wp_dd = unserialize($config['wp_bridge']);
 	$config['wp_url'] = $wp_dd['path'];
 	$config['wp_path'] = substr($config['wp_url'], strpos($config['wp_url'], '//') + 2);
@@ -204,7 +203,7 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 		if (!empty($config['wp_path']) && isset($_POST['login'])) {
 			define('IN_BRIDGEDD', $phpbb_root_path);
 			define('WP_USE_THEMES', false);
-			require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-blog-header.php');
+			require($_SERVER['DOCUMENT_ROOT'] . $config['wp_path'] . 'wp-blog-header.php');
 			$phpbb_root_path = IN_BRIDGEDD;
 		}
 
@@ -219,7 +218,7 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 			if (!empty($config['wp_path']) && $wp_id) {
 				define('IN_BRIDGEDD', $phpbb_root_path);
 				define('WP_USE_THEMES', false);
-				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-blog-header.php');
+				require($_SERVER['DOCUMENT_ROOT'] . $config['wp_path'] . 'wp-blog-header.php');
 				$phpbb_root_path = IN_BRIDGEDD;
 				wp_clear_auth_cookie();
 				$user->set_cookie('wpid', 'x', time() - (365*24*3600));

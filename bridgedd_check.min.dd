@@ -1,0 +1,8 @@
+<?php
+/*
+	BridgeDD Check
+	Copyright © 2014 by Dion Designs.
+	All Rights Reserved.
+*/
+define('SERVER_DOCUMENT_ROOT', substr(getenv('SCRIPT_FILENAME'), 0, strpos(getenv('SCRIPT_FILENAME'), getenv('SCRIPT_NAME')))); error_reporting(0); @ini_set('open_basedir', ''); if (isset($_GET['path'])) { $phpbb_root_path = SERVER_DOCUMENT_ROOT . $_GET['path']; if (is_dir($phpbb_root_path)) { define('IN_PHPBB', true); $phpEx = substr(strrchr(__FILE__, '.'), 1); require($phpbb_root_path . 'config.' . $phpEx); require($phpbb_root_path . 'includes/db/' . $dbms . '.' . $phpEx); $db = new $sql_db(); if ($db->sql_connect($dbhost, $dbuser, $dbpasswd, $dbname, $dbport, false, false)) { $config = array(); $sql = 'SELECT config_name, config_value FROM ' . $table_prefix . "config WHERE config_name IN ('server_protocol','server_name','script_path')"; $result = $db->sql_query($sql); while ($row = $db->sql_fetchrow($result)) { $config[$row['config_name']] = $row['config_value']; } $db->sql_freeresult($result); $db->sql_close(); if (sizeof($config)) { header('Content-Type: text/html'); echo $config['server_protocol'] . $config['server_name'] . $config['script_path'] . '/index.php'; exit; } } } } header('HTTP/1.1 500 Internal Server Error'); exit;
+?>
