@@ -199,6 +199,7 @@ msgstr ""
 msgid "CSS avatar size (48-96 pixels):"
 msgstr ""
 
+#. Location = LEFT or RIGHT
 #: bridgedd_widgets.addon:243
 msgid "CSS avatar location:"
 msgstr ""

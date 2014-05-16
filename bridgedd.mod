@@ -1,38 +1,44 @@
 BridgeDD
-10202
-[<FILE_NAME>][wp]wp-includes/formatting.php
-[<SEARCH_ARRAY>]
-function make_clickable( $text ) {
-[<REPLACE_ARRAY>]
-if (!defined('IN_PHPBB')) {
-	function make_clickable($text) {
-		return wp_make_clickable($text);
-	}
-}
-
-function wp_make_clickable( $text ) {
-[<FILE_NAME>][wp]wp-includes/user.php
-[<SEARCH_ARRAY>]
-function validate_username( $username ) {
-[<REPLACE_ARRAY>]
-if (!defined('IN_PHPBB')) {
-	function validate_username($username) {
-		return wp_validate_username($username);
-	}
-}
-
-function wp_validate_username( $username ) {
+10203
 [<FILE_NAME>][phpbb]includes/functions_content.php
 [<SEARCH_ARRAY>]
 function make_clickable($text, $server_url = false, $class = 'postlink')
 [<REPLACE_ARRAY>]
-if (!defined('WPINC')) {
+if (!defined('WPINC') && !defined('USING_WP')) {
 	function make_clickable($text, $server_url = false, $class = 'postlink') {
 		return phpbb_make_clickable($text, $server_url, $class);
 	}
 }
 
 function phpbb_make_clickable($text, $server_url = false, $class = 'postlink')
+[<FILE_NAME>][phpbb]includes/acp/acp_users.php
+[<SEARCH_ARRAY>]
+							add_log('user', $user_id, 'LOG_USER_NEW_PASSWORD', $user_row['username']);
+[<REPLACE_ARRAY>]
+							$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+							$result = $db->sql_query($sql);
+							$wp_id = (int) $db->sql_fetchfield('wp_id');
+							$db->sql_freeresult($result);
+							if ($wp_id) {
+								global $dbwp;
+								$sql = 'UPDATE ' . $config['wp_user_table'] . " SET user_pass = '" . $sql_ary['user_password'] . "' WHERE ID = " . $wp_id;
+								$dbwp->sql_query($sql);
+							}
+							add_log('user', $user_id, 'LOG_USER_NEW_PASSWORD', $user_row['username']);
+[<FILE_NAME>][phpbb]includes/ucp/ucp_profile.php
+[<SEARCH_ARRAY>]
+							add_log('user', $user->data['user_id'], 'LOG_USER_NEW_PASSWORD', $data['username']);
+[<REPLACE_ARRAY>]
+							$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
+							$result = $db->sql_query($sql);
+							$wp_id = (int) $db->sql_fetchfield('wp_id');
+							$db->sql_freeresult($result);
+							if ($wp_id) {
+								global $dbwp;
+								$sql = 'UPDATE ' . $config['wp_user_table'] . " SET user_pass = '" . $sql_ary['user_password'] . "' WHERE ID = " . $wp_id;
+								$dbwp->sql_query($sql);
+							}
+							add_log('user', $user->data['user_id'], 'LOG_USER_NEW_PASSWORD', $data['username']);
 [<FILE_NAME>][phpbb]includes/functions_user.php
 [<SEARCH_ARRAY>]
 function validate_username($username, $allowed_username = false)
@@ -42,7 +48,7 @@ function validate_username($username, $allowed_username = false)
 [<MULTI>]
 		$auth->acl_clear_prefetch(array_keys($sql_statements));
 [<REPLACE_ARRAY>]
-if (!defined('WPINC')) {
+if (!defined('WPINC') && !defined('USING_WP')) {
 	function validate_username($username, $allowed_username = false) {
 		return phpbb_validate_username($username, $allowed_username);
 	}
@@ -100,6 +106,8 @@ function phpbb_validate_username($username, $allowed_username = false)
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
 [<MULTI>]
+	define('HEADER_INC', true);
+[<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 [<MULTI>]
 	if (!empty($db))
@@ -109,9 +117,9 @@ function phpbb_validate_username($username, $allowed_username = false)
 		{
 			if (defined('WPINC') && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
 				$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
-				$result = $db->sql_query($sql);
+				$result2 = $db->sql_query($sql);
 				$wp_id = (int) $db->sql_fetchfield('wp_id');
-				$db->sql_freeresult($result);
+				$db->sql_freeresult($result2);
 				$wpid = request_var($config['cookie_name'] . '_wpid', 0, false, true);
 
 				// if not an integrated user, integrate them
@@ -131,6 +139,45 @@ function phpbb_validate_username($username, $allowed_username = false)
 				}
 			}
 
+[<MULTI>]
+	if (!empty($config['wp_option_table'])) {
+		global $dbwp;
+		$sql = 'SELECT option_name, option_value FROM ' . $config['wp_option_table'] . " WHERE option_name IN ('bridgedd_menus','bridgedd_sidebars')";
+		$result = $dbwp->sql_query($sql);
+		while($row = $db->sql_fetchrow($result)) {
+			$wp_ary = unserialize($row['option_value']);
+			if ($row['option_name'] == 'bridgedd_menus') {
+				foreach ($wp_ary as $menu => $html) {
+					if ($menu == 'theme_data') {
+						$template->assign_vars(array(
+							'WP_BLOG_NAME'				=> $html['blog_name'],
+							'WP_BLOG_DESCRIPTION'		=> $html['blog_description'],
+							'WP_HEADER_IMAGE'			=> $html['header_image'],
+							'WP_HEADER_IMAGE_WIDTH'		=> $html['header_image_width'],
+							'WP_HEADER_IMAGE_HEIGHT'	=> $html['header_image_height'],
+							'WP_HEADER_TEXTCOLOR'		=> $html['header_textcolor'],
+							'WP_BACKGROUND_IMAGE'		=> $html['background_image'],
+							'WP_BACKGROUND_COLOR'		=> $html['background_color'],
+						));
+					}
+					else {
+						$template->assign_var('WPMENU_' . strtoupper($menu), $html);
+					}
+				}
+			}
+			else {
+				foreach ($wp_ary as $sidebar => $data) {
+					list($count, $html) = explode("\t", $data);
+					$width = round((100 / intval($count)), 2, PHP_ROUND_HALF_DOWN);
+					$template->assign_var('WPSIDEBAR_' . strtoupper($sidebar), $html);
+					$template->assign_var(strtoupper($sidebar) . '_WIDTH', $width);
+				}
+			}
+		}
+		$dbwp->sql_freeresult($result);
+	}
+
+	define('HEADER_INC', true);
 [<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 		'U_WP'					=> $config['wp_url'],
@@ -180,6 +227,7 @@ $config = $cache->obtain_config();
 if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 	@ini_set('open_basedir', '');
 	define('SERVER_DOCUMENT_ROOT', substr(getenv('SCRIPT_FILENAME'), 0, strpos(getenv('SCRIPT_FILENAME'), getenv('SCRIPT_NAME'))));
+	define('PHPBB_PREFIX', $table_prefix);
 	$wp_dd = unserialize($config['wp_bridge']);
 	$config['wp_url'] = $wp_dd['path'];
 	$config['wp_path'] = substr($config['wp_url'], strpos($config['wp_url'], '//') + 2);
@@ -196,16 +244,25 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 }
 [<FILE_NAME>][phpbb]ucp.php
 [<SEARCH_ARRAY>]
+require($phpbb_root_path . 'common.' . $phpEx);
+[<MULTI>]
 		login_box(request_var('redirect', "index.$phpEx"));
 [<MULTI>]
 		if ($user->data['user_id'] != ANONYMOUS && isset($_GET['sid']) && !is_array($_GET['sid']) && $_GET['sid'] === $user->session_id)
 		{
 [<REPLACE_ARRAY>]
+
+if ($_REQUEST['mode'] == 'login' || $_REQUEST['mode'] == 'logout') {
+	define('USING_WP', true);
+}
+
+require($phpbb_root_path . 'common.' . $phpEx);
+[<MULTI>]
 		if (!empty($config['wp_path']) && isset($_POST['login'])) {
 			define('IN_BRIDGEDD', $phpbb_root_path);
-			define('WP_USE_THEMES', false);
-			require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-blog-header.php');
+			require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
 			$phpbb_root_path = IN_BRIDGEDD;
+			$table_prefix = PHPBB_PREFIX;
 		}
 
 		login_box(request_var('redirect', "index.$phpEx"));
@@ -218,10 +275,10 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 			$db->sql_freeresult($result);
 			if (!empty($config['wp_path']) && $wp_id) {
 				define('IN_BRIDGEDD', $phpbb_root_path);
-				define('WP_USE_THEMES', false);
-				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-blog-header.php');
-				$phpbb_root_path = IN_BRIDGEDD;
+				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
 				wp_clear_auth_cookie();
+				$phpbb_root_path = IN_BRIDGEDD;
+				$table_prefix = PHPBB_PREFIX;
 				$user->set_cookie('wpid', 'x', time() - (365*24*3600));
 			}
 [<FILE_NAME>][phpbb]posting.php

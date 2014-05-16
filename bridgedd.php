@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: BridgeDD
-Plugin URI: http://www.diondesigns.org/bridgedd/
-Version: 1.2.2
+Plugin URI: http://www.diondesigns.org/bridgedd/support/
+Version: 1.2.3
 Author: Dion Designs
-Author URI: http://www.dion-designs.com
+Author URI: http://www.dion-designs.com/
 Text Domain: bridgedd
 Domain Path: /languages/
 Description: Creates a bridge between phpBB and WordPress
@@ -14,7 +14,7 @@ if (!defined('WPINC')) {
 }
 
 if (!defined('IN_BRIDGEDD')) {
-	define('BRIDGEDD', 10202);
+	define('BRIDGEDD', 10203);
 	@ini_set('open_basedir', '');
 	require(dirname(__FILE__) . '/bridgedd.min.plugin');
 	register_activation_hook(__FILE__, 'bridgedd_activate');
