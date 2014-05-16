@@ -24,7 +24,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
-BridgeDD requires PHP 5.2 or later (same as WordPress) and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
+BridgeDD requires PHP 5.3.0 or later and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 = Installation notes =
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
@@ -105,6 +105,10 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+
+BridgeDD 1.2.3 is a signiticant upgrade from previous versions. Those using earlier versions of BridgeDD should immediately update to this version!
 
 = 1.2.2 =
 
