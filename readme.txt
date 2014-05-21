@@ -41,7 +41,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 4. Activate the BridgeDD plugin
 5. Select your phpBB installation in BridgeDD Settings
 6. Verify that the displayed URL and board preview are correct, and click **Save Changes**
-7 Select the remaining BridgeDD settings options, and click **Save Changes** again
+7. Select the remaining BridgeDD settings options, and click **Save Changes** again
 8. Re-enable _XCache_ or _eAccelerator_
 
 == Frequently Asked Questions ==
