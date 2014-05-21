@@ -106,8 +106,6 @@ function phpbb_validate_username($username, $allowed_username = false)
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
 [<MULTI>]
-	define('HEADER_INC', true);
-[<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 [<MULTI>]
 	if (!empty($db))
@@ -139,45 +137,6 @@ function phpbb_validate_username($username, $allowed_username = false)
 				}
 			}
 
-[<MULTI>]
-	if (!empty($config['wp_option_table'])) {
-		global $dbwp;
-		$sql = 'SELECT option_name, option_value FROM ' . $config['wp_option_table'] . " WHERE option_name IN ('bridgedd_menus','bridgedd_sidebars')";
-		$result = $dbwp->sql_query($sql);
-		while($row = $db->sql_fetchrow($result)) {
-			$wp_ary = unserialize($row['option_value']);
-			if ($row['option_name'] == 'bridgedd_menus') {
-				foreach ($wp_ary as $menu => $html) {
-					if ($menu == 'theme_data') {
-						$template->assign_vars(array(
-							'WP_BLOG_NAME'				=> $html['blog_name'],
-							'WP_BLOG_DESCRIPTION'		=> $html['blog_description'],
-							'WP_HEADER_IMAGE'			=> $html['header_image'],
-							'WP_HEADER_IMAGE_WIDTH'		=> $html['header_image_width'],
-							'WP_HEADER_IMAGE_HEIGHT'	=> $html['header_image_height'],
-							'WP_HEADER_TEXTCOLOR'		=> $html['header_textcolor'],
-							'WP_BACKGROUND_IMAGE'		=> $html['background_image'],
-							'WP_BACKGROUND_COLOR'		=> $html['background_color'],
-						));
-					}
-					else {
-						$template->assign_var('WPMENU_' . strtoupper($menu), $html);
-					}
-				}
-			}
-			else {
-				foreach ($wp_ary as $sidebar => $data) {
-					list($count, $html) = explode("\t", $data);
-					$width = round((100 / intval($count)), 2, PHP_ROUND_HALF_DOWN);
-					$template->assign_var('WPSIDEBAR_' . strtoupper($sidebar), $html);
-					$template->assign_var(strtoupper($sidebar) . '_WIDTH', $width);
-				}
-			}
-		}
-		$dbwp->sql_freeresult($result);
-	}
-
-	define('HEADER_INC', true);
 [<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 		'U_WP'					=> $config['wp_url'],
@@ -252,7 +211,7 @@ require($phpbb_root_path . 'common.' . $phpEx);
 		{
 [<REPLACE_ARRAY>]
 
-if ($_REQUEST['mode'] == 'login' || $_REQUEST['mode'] == 'logout') {
+if (isset($_REQUEST['mode']) && ($_REQUEST['mode'] == 'login' || $_REQUEST['mode'] == 'logout')) {
 	define('USING_WP', true);
 }
 
