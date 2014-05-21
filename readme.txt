@@ -138,5 +138,6 @@ _Russian, Ukranian_
 
 = 1.2.4 =
 
+* New download and update procedures
 * Added support for APC and OPcache PHP cache extensions
 * Fixed bug in login/logout process in phpBB
