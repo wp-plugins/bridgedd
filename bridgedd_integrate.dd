@@ -4,14 +4,15 @@
 	Copyright © 2014 by Dion Designs.
 	All Rights Reserved.
 */
-$data = file_get_contents('data.txt');
-if (!$data) {exit;}
-
+$data = @file_get_contents(dirname(__FILE__) . '/data.txt');
+if (!$data) {
+	die('INTEGRATION ERROR');
+}
 $dd = unserialize($data);
-unlink('data.txt');
+unlink(dirname(__FILE__) . '/data.txt');
 
-define('WP_USE_THEMES', false);
-require($_SERVER['DOCUMENT_ROOT'] . $dd['wp_path'] . 'wp-blog-header.php');
+define('SERVER_DOCUMENT_ROOT', substr(getenv('SCRIPT_FILENAME'), 0, strpos(getenv('SCRIPT_FILENAME'), getenv('SCRIPT_NAME'))));
+require(SERVER_DOCUMENT_ROOT . $dd['wp_path'] . 'wp-load.php');
 
 $msg = sprintf(__('Welcome, <strong>%1$s</strong>. Your %2$s account is not integrated with this site.', 'bridgedd'), $dd['wp_name'], 'WordPress') . '
 	<br /><br />' . __('Press the <strong>Log In</strong> button if you have an account here. Your two accounts will be integrated after logging in.', 'bridgedd') . '
