@@ -34,26 +34,25 @@ BridgeDD modifies phpBB files, and you should take the same precautions before i
 
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
-= Installation instructions =
-1. **If you have installed a PHP cache extension such as _APC_, _OPcache_, _XCache_, or _eAccelerator_, disable it!**
+= Installation instructions (1.2.4 and later) =
+1. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
 2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, **deactivate it**
-3. In a separate tab/window, log in to phpBB with your admin/founder account
-4. Upload the _bridgedd.zip_ file via the Install Plugins interface
-5. Activate the BridgeDD plugin
-6. Select your phpBB installation in BridgeDD Settings
-7. Verify that the displayed URL and board preview are correct, and click **Save Changes**
-8. Select the remaining BridgeDD settings options, and click **Save Changes** again
-9. Close the tab/window to phpBB
-10. Re-enable your PHP cache extension
+3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
+4. Activate the BridgeDD plugin
+5. Select your phpBB installation in BridgeDD Settings
+6. Verify that the displayed URL and board preview are correct, and click **Save Changes**
+7 Select the remaining BridgeDD settings options, and click **Save Changes** again
+8. Re-enable _XCache_ or _eAccelerator_
 
 == Frequently Asked Questions ==
 
 The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. Why? =
-The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as APC, OPcache, XCache, or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
+The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
 
 **NOTE:** You must also disable these cache extensions before you deactivate BridgeDD.
+**NOTE:** The OPcache and APC cache extensions are supported by BridgeDD 1.2.4 and later.
 
 = I selected my phpBB installation, but the URL and preview for my board are wrong. =
 This means that the settings for your phpBB board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
@@ -134,3 +133,10 @@ _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
 
 The following translations were done by Maxim Tkachenko:
 _Russian, Ukranian_
+
+== Newer Version Change Log ==
+
+= 1.2.4 =
+
+* Added support for APC and OPcache PHP cache extensions
+* Fixed bug in login/logout process in phpBB
