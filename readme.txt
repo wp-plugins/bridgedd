@@ -34,7 +34,8 @@ BridgeDD modifies phpBB files, and you should take the same precautions before i
 
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
-= Installation instructions (1.2.4 and later) =
+### Installation instructions (1.2.4 and later)
+<br />
 1. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
 2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, **deactivate it**
 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
@@ -48,7 +49,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 > The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
-= BridgeDD doesn't work. Why? =
+= BridgeDD doesn't work. =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
 
 > You must also disable these cache extensions before you deactivate BridgeDD. <br />
