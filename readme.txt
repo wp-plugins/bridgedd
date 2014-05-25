@@ -11,8 +11,8 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 == Description ==
 
 > ### [**Download current Version (1.2.4)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
-
 > ### [**Update to current version**](https://github.com/wp-plugins/bridgedd/archive/update.zip)
+>   
 
 = BridgeDD is a WordPress&harr;phpBB bridge that...works. =
 
