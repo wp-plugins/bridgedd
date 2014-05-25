@@ -25,7 +25,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
->> Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
+> Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
 BridgeDD requires PHP 5.3.0 or later and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
@@ -46,13 +46,13 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 == Frequently Asked Questions ==
 
->> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
+> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. Why? =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
 
 > You must also disable these cache extensions before you deactivate BridgeDD. <br />
-> **The OPcache and APC cache extensions are supported by BridgeDD 1.2.4 and later.**
+> **OPcache and APC are supported by BridgeDD 1.2.4 and later.**
 
 = I selected my phpBB installation, but the URL and preview for my board are wrong. =
 This means that the settings for your phpBB board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
