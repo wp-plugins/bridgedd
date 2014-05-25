@@ -35,7 +35,7 @@ BridgeDD modifies phpBB files, and you should take the same precautions before i
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
 ### Installation instructions (1.2.4 and later)
-<br />
+
 1. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
 2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, **deactivate it**
 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
