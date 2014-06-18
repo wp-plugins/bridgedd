@@ -113,7 +113,11 @@ function phpbb_validate_username($username, $allowed_username = false)
 		// The result parameter is always an array, holding the relevant information...
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
-			if (defined('WPINC') && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
+			if (!empty($config['wp_path']) && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
+				define('IN_BRIDGEDD', $phpbb_root_path);
+				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
+				$phpbb_root_path = IN_BRIDGEDD;
+				$table_prefix = PHPBB_PREFIX;
 				$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
 				$result2 = $db->sql_query($sql);
 				$wp_id = (int) $db->sql_fetchfield('wp_id');
@@ -205,8 +209,6 @@ if (!empty($config['wp_bridge']) && !empty($config['wp_db'])) {
 [<SEARCH_ARRAY>]
 require($phpbb_root_path . 'common.' . $phpEx);
 [<MULTI>]
-		login_box(request_var('redirect', "index.$phpEx"));
-[<MULTI>]
 		if ($user->data['user_id'] != ANONYMOUS && isset($_GET['sid']) && !is_array($_GET['sid']) && $_GET['sid'] === $user->session_id)
 		{
 [<REPLACE_ARRAY>]
@@ -216,15 +218,6 @@ if (isset($_REQUEST['mode']) && ($_REQUEST['mode'] == 'login' || $_REQUEST['mode
 }
 
 require($phpbb_root_path . 'common.' . $phpEx);
-[<MULTI>]
-		if (!empty($config['wp_path']) && isset($_POST['login'])) {
-			define('IN_BRIDGEDD', $phpbb_root_path);
-			require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
-			$phpbb_root_path = IN_BRIDGEDD;
-			$table_prefix = PHPBB_PREFIX;
-		}
-
-		login_box(request_var('redirect', "index.$phpEx"));
 [<MULTI>]
 		if ($user->data['user_id'] != ANONYMOUS && isset($_GET['sid']) && !is_array($_GET['sid']) && $_GET['sid'] === $user->session_id)
 		{

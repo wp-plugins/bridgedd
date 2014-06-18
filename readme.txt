@@ -124,6 +124,8 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 BridgeDD 1.2.5 fixes a serious bug in phpBB logins. If you have phpBB registration set to allow "any character" in usernames, this is a **mandatory** upgrade!
 
+This is also the final version which will be available through the "brain-dead" plugin auto-update process used here on wordpress.org. From now until forever, the version of BridgeDD which will be displayed in the download button will be 1.2.5. The only way to update BridgeDD will be to use the official update plugin. You will see an update notice on the plugins page when a new version of BridgeDD is available.
+
 = 1.2.4 =
 
 ### BridgeDD 1.2.4 is a MANDATORY update!
