@@ -10,8 +10,8 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.2.4)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
-### [**Update to current version**](https://github.com/wp-plugins/bridgedd/archive/update.zip)
+### [**Download current Version (1.2.5)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Update to current version**](http://downloads.wordpress.org/plugin/bridgedd.update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
 
@@ -66,6 +66,17 @@ Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd
 
 == Changelog ==
 
+= 1.2.5 =
+
+* Minor display enhancements in WordPress admin area
+* Bug fix: logins not possible in phpBB if username contained characters invalid in WordPress usernames
+
+= 1.2.4 =
+
+* New download and update procedures
+* Added support for APC and OPcache PHP cache extensions
+* Fixed bug in login/logout process in phpBB
+
 = 1.2.3 =
 
 * BridgeDD now requires PHP 5.3.0 or later
@@ -109,6 +120,16 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 == Upgrade Notice ==
 
+= 1.2.5 =
+
+BridgeDD 1.2.5 fixes a serious bug in phpBB logins. If you have phpBB registration set to allow "any character" in usernames, this is a **mandatory** upgrade!
+
+= 1.2.4 =
+
+### BridgeDD 1.2.4 is a MANDATORY update!
+
+From this point forward, the only way to update BridgeDD 1.2.3 and earlier will be to download and activate the [**BridgeDD Update Plugin**](https://github.com/wp-plugins/bridgedd/archive/update.zip). If you attempt to update BridgeDD 1.2.3 to any future version of BridgeDD through wordpress.org, **it will potentially corrupt your phpBB installation**.
+
 = 1.2.3 =
 
 BridgeDD 1.2.3 is a signiticant upgrade from previous versions. Those using earlier versions of BridgeDD should immediately update to this version!
@@ -132,11 +153,3 @@ If you have translated this plugin into your language, feel free to post the PO 
 The following translations were done by [**FextraLife**](http://fextralife.com): _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
 
 The following translations were done by Maxim Tkachenko: _Russian, Ukranian_
-
-== Newer Version Change Log ==
-
-= 1.2.4 =
-
-* New download and update procedures
-* Added support for APC and OPcache PHP cache extensions
-* Fixed bug in login/logout process in phpBB
