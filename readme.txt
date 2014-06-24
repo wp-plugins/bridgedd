@@ -68,6 +68,7 @@ Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd
 
 = 1.2.6 =
 
+* Logins through the login/logout widget will now always redirect to the site home page
 * Bug fix: fix PHP error in admin login
 
 = 1.2.5 =
