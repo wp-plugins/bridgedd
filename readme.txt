@@ -10,7 +10,7 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.2.5)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Download current Version (1.2.6)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
 ### [**Update to current version**](http://downloads.wordpress.org/plugin/bridgedd.update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
@@ -65,6 +65,10 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.2.6 =
+
+* Bug fix: fix PHP error in admin login
 
 = 1.2.5 =
 
