@@ -10,8 +10,8 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.2.6)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
-### [**Update to current version**](http://plugins.svn.wordpress.org/bridgedd/tags/public/bridgedd-update.zip)
+### [**Download current Version (1.2.7)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Update to current version**](http://downloads.wordpress.org/plugin/bridgedd.update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
 
@@ -47,7 +47,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 == Frequently Asked Questions ==
 
-> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
+> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
@@ -65,6 +65,11 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.2.7 =
+
+* Improvements to update procedure
+* Bug fix: incorrect sync of banned/deactivated users
 
 = 1.2.6 =
 

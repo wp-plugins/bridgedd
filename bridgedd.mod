@@ -1,4 +1,4 @@
-BridgeDD|10205
+BridgeDD|10207
 All code in this file is used by phpBB and not by WordPress!
 [<FILE_NAME>][phpbb]includes/functions_content.php
 [<SEARCH_ARRAY>]
@@ -46,7 +46,11 @@ function validate_username($username, $allowed_username = false)
 	// Reset newest user info if appropriate
 	if ($config['newest_user_id'] == $user_id)
 [<MULTI>]
-		$auth->acl_clear_prefetch(array_keys($sql_statements));
+	$sql_statements = array();
+[<MULTI>]
+			$deactivated++;
+[<MULTI>]
+		set_config_count('num_users', $deactivated * (-1), true);
 [<REPLACE_ARRAY>]
 if (!defined('WPINC') && !defined('USING_WP')) {
 	function validate_username($username, $allowed_username = false) {
@@ -56,16 +60,41 @@ if (!defined('WPINC') && !defined('USING_WP')) {
 
 function phpbb_validate_username($username, $allowed_username = false)
 [<MULTI>]
+	$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+	$result = $db->sql_query($sql);
+	$wp_id = $db->sql_fetchfield('wp_id');
+	$db->sql_freeresult($result);
+	if ($wp_id) {
+		global $dbwp;
+		$sql = 'DELETE FROM ' . $config['wp_user_table'] . ' WHERE ID = ' . $wp_id;
+		$dbwp->sql_query($sql);
+	}
 	$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
 	$db->sql_query($sql);
 
 	// Reset newest user info if appropriate
 	if ($config['newest_user_id'] == $user_id)
 [<MULTI>]
-		$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+	$sql_statements = $deactivated_ary = array();
+[<MULTI>]
+			$deactivated_ary[] = intval($row['user_id']);
+			$deactivated++;
+[<MULTI>]
+		$wp_ary = array();
+		$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE ' . $db->sql_in_set('phpbb_id', $deactivated_ary);
+		$result = $db->sql_query($sql);
+		while ($row = $db->sql_fetchrow($result)) {
+			$wp_ary[] = intval($row['wp_id']);
+		}
+		$db->sql_freeresult($result);
+		if (sizeof($wp_ary)) {
+			global $dbwp;
+			$sql = 'DELETE FROM ' . $config['wp_user_table'] . ' WHERE ' . $dbwp->sql_in_set('ID', $wp_ary);
+			$dbwp->sql_query($sql);
+		}
+		$sql = 'DELETE FROM bridgedd_xuser WHERE ' . $db->sql_in_set('phpbb_id', $deactivated_ary);
 		$db->sql_query($sql);
-
-		$auth->acl_clear_prefetch(array_keys($sql_statements));
+		set_config_count('num_users', $deactivated * (-1), true);
 [<FILE_NAME>][phpbb]includes/functions_posting.php
 [<SEARCH_ARRAY>]
 	for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
@@ -113,7 +142,7 @@ function phpbb_validate_username($username, $allowed_username = false)
 		// The result parameter is always an array, holding the relevant information...
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
-			if (!empty($config['wp_path']) && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
+			if (!empty($config['wp_path']) && !$admin && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
 				define('IN_BRIDGEDD', $phpbb_root_path);
 				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
 				$phpbb_root_path = IN_BRIDGEDD;
