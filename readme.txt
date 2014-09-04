@@ -3,7 +3,7 @@ Contributors: DionDesigns
 Donate link: http://www.diondesigns.org/bridgedd/subscribe/
 Tags: bridge,integration,phpbb
 Requires at least: 3.5
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: trunk
 
 BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
