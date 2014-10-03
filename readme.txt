@@ -130,6 +130,10 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 == Upgrade Notice ==
 
+= 1.2.7 =
+
+A minor update to prepare for the BridgeDD 1.3 major update
+
 = 1.2.5 =
 
 BridgeDD 1.2.5 fixes a serious bug in phpBB logins. If you have phpBB registration set to allow "any character" in usernames, this is a **mandatory** upgrade!

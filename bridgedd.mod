@@ -43,8 +43,7 @@ function phpbb_make_clickable($text, $server_url = false, $class = 'postlink')
 [<SEARCH_ARRAY>]
 function validate_username($username, $allowed_username = false)
 [<MULTI>]
-	// Reset newest user info if appropriate
-	if ($config['newest_user_id'] == $user_id)
+	// Delete the user_id from the zebra table
 [<MULTI>]
 	$sql_statements = array();
 [<MULTI>]
@@ -68,12 +67,11 @@ function phpbb_validate_username($username, $allowed_username = false)
 		global $dbwp;
 		$sql = 'DELETE FROM ' . $config['wp_user_table'] . ' WHERE ID = ' . $wp_id;
 		$dbwp->sql_query($sql);
+		$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
+		$db->sql_query($sql);
 	}
-	$sql = 'DELETE FROM bridgedd_xuser WHERE phpbb_id = ' . $user_id;
-	$db->sql_query($sql);
 
-	// Reset newest user info if appropriate
-	if ($config['newest_user_id'] == $user_id)
+	// Delete the user_id from the zebra table
 [<MULTI>]
 	$sql_statements = $deactivated_ary = array();
 [<MULTI>]
@@ -143,9 +141,9 @@ function phpbb_validate_username($username, $allowed_username = false)
 		if ($result['status'] == LOGIN_SUCCESS)
 		{
 			if (!empty($config['wp_path']) && !$admin && ($user->data['user_type'] == USER_NORMAL || $user->data['user_type'] == USER_FOUNDER)) {
-				define('IN_BRIDGEDD', $phpbb_root_path);
+				define('WP_INSTALLING', $phpbb_root_path);
 				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
-				$phpbb_root_path = IN_BRIDGEDD;
+				$phpbb_root_path = WP_INSTALLING;
 				$table_prefix = PHPBB_PREFIX;
 				$sql = 'SELECT wp_id FROM bridgedd_xuser WHERE phpbb_id = ' . $user->data['user_id'];
 				$result2 = $db->sql_query($sql);
@@ -255,10 +253,10 @@ require($phpbb_root_path . 'common.' . $phpEx);
 			$wp_id = (int) $db->sql_fetchfield('wp_id');
 			$db->sql_freeresult($result);
 			if (!empty($config['wp_path']) && $wp_id) {
-				define('IN_BRIDGEDD', $phpbb_root_path);
+				define('WP_INSTALLING', $phpbb_root_path);
 				require(SERVER_DOCUMENT_ROOT . $config['wp_path'] . 'wp-load.php');
 				wp_clear_auth_cookie();
-				$phpbb_root_path = IN_BRIDGEDD;
+				$phpbb_root_path = WP_INSTALLING;
 				$table_prefix = PHPBB_PREFIX;
 				$user->set_cookie('wpid', 'x', time() - (365*24*3600));
 			}
