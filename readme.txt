@@ -19,7 +19,7 @@ You can log in and out from WordPress or phpBB as you always do, and you will be
 
 And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
-You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php)
+You can obtain support by visiting the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php)
 
 Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, menus, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
 
@@ -27,7 +27,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
-> Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
+> Read the [**READ ME FIRST**](http://diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
 BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.12, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
@@ -49,7 +49,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 == Frequently Asked Questions ==
 
-> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
+> The [**READ ME FIRST**](http://diondesigns.org/bridgedd/support/viewtopic.php?t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
@@ -64,7 +64,7 @@ This means that the settings for your phpBB board's URL are incorrect. Since you
 The WordPress and phpBB installations must be in the same domain, and WordPress must be able to save a cookie that phpBB can read. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
 ### Got more questions?
-Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
 
@@ -175,7 +175,7 @@ BridgeDD 1.2 uses less memory than previous versions, is easier to configure, an
 
 == Translations ==
 
-If you have translated this plugin into your language, feel free to post the PO file on the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+If you have translated this plugin into your language, feel free to post the PO file on the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 The following translations were done by [**FextraLife**](http://fextralife.com): _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
 
