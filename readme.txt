@@ -10,7 +10,7 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.2.7)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Download current Version (1.3)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
 ### [**Update to current version**](http://downloads.wordpress.org/plugin/bridgedd.update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
@@ -19,25 +19,27 @@ You can log in and out from WordPress or phpBB as you always do, and you will be
 
 And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
-You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php) (phpBB, of course!). Becoming a member on the support board will give you access to BridgeDD Premium, an accessory plugin that provides cross-posting capabilities. Members can also ask support questions.
+You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php)
 
 Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, menus, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
+
+### BridgeDD PRO supports phpBB 3.1.
 
 == Installation ==
 
 > Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
-BridgeDD requires PHP 5.3.0 or later and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
+BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.12, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 = Installation notes =
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
 
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
-### Installation instructions (1.2.4 and later)
+### Installation instructions
 
 1. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
-2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, **deactivate it**
+2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
 4. Activate the BridgeDD plugin
 5. Select your phpBB installation in BridgeDD Settings
@@ -65,6 +67,15 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.3 =
+
+* Cross-post addon included with BridgeDD
+* Rewritten settings interface - addons have their own settings panel
+* BridgeDD can be completely uninstalled - the first bridge to offer this capability
+* Much improved compatibility with Windows IIS servers and WAMP localhost installs
+* Brazilian Portuguese translation - _by Juliana Cristine_
+* More than 80 bug fixes and code optimizations
 
 = 1.2.7 =
 
@@ -169,3 +180,5 @@ If you have translated this plugin into your language, feel free to post the PO 
 The following translations were done by [**FextraLife**](http://fextralife.com): _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
 
 The following translations were done by Maxim Tkachenko: _Russian, Ukranian_
+
+The following translation was done by Juliana Cristine: _Brazilian Portuguese_
