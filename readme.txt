@@ -10,7 +10,7 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.3.2)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Download current Version (1.3.3)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
 ### [**Update to current version**](http://plugins.svn.wordpress.org/bridgedd/tags/public/bridgedd-update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
@@ -29,7 +29,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 > Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
-BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.12, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
+BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 = Installation notes =
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
@@ -67,6 +67,11 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.3.3 =
+* Bug fix: conflict when registration is set to WordPress
+* Bug fix: Incorrect button and select/dropdown alignment on RTL languages
+* Arabic translation - _by mohamedh_
 
 = 1.3.2 =
 
@@ -190,3 +195,5 @@ The following translations were done by [**FextraLife**](http://fextralife.com):
 The following translations were done by Maxim Tkachenko: _Russian, Ukranian_
 
 The following translation was done by Juliana Cristine: _Brazilian Portuguese_
+
+The following translation was done by [mohamedh](http://animefn.com): _Arabic_
