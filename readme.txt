@@ -1,6 +1,6 @@
 === BridgeDD ===
 Contributors: DionDesigns
-Donate link: http://www.diondesigns.org/bridgedd/subscribe/
+Donate link: http://diondesigns.org/bridgedd/subscribe/
 Tags: bridge,integration,phpbb
 Requires at least: 3.5
 Tested up to: 4.1
@@ -10,7 +10,7 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-### [**Download current Version (1.3.3)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
+### [**Download current Version (1.3.4)**](http://downloads.wordpress.org/plugin/bridgedd.latest.zip)
 ### [**Update to current version**](http://plugins.svn.wordpress.org/bridgedd/tags/public/bridgedd-update.zip)
 
 ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
@@ -19,7 +19,7 @@ You can log in and out from WordPress or phpBB as you always do, and you will be
 
 And best of all, the bridging is done using a breakthrough technology that eliminates the bloat, sluggishness, and bugs of other WordPress-based bridge plugins and phpBB-based bridge MODs.
 
-You can obtain support by visiting the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php)
+You can obtain support by visiting the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php)
 
 Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, menus, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
 
@@ -27,7 +27,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 
 == Installation ==
 
-> Read the [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
+> Read the [**READ ME FIRST**](http://diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
 
 BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
@@ -38,8 +38,8 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 ### Installation instructions
 
-1. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
-2. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
+1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
+2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
 4. Activate the BridgeDD plugin
 5. Select your phpBB installation in BridgeDD Settings
@@ -49,7 +49,7 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 == Frequently Asked Questions ==
 
-> The [**READ ME FIRST**](http://www.diondesigns.org/bridgedd/support/viewtopic.php?t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
+> The [**READ ME FIRST**](http://diondesigns.org/bridgedd/support/viewtopic.php?t=107) guide contains important information about compatibility of various plugins/MODs/etc with BridgeDD.
 
 = BridgeDD doesn't work. =
 The most common cause of problems is trying to activate and configure BridgeDD while cache extensions are active. In order to integrate phpBB with WordPress, BridgeDD makes a number of modifications to the filesystem and database of both phpBB and WordPress. PHP cache extensions such as XCache or eAccelerator can interfere with this process. Please disable these extensions before before activating and configuring BridgeDD. They can be safely enabled after BridgeDD is configured and running.
@@ -58,18 +58,23 @@ The most common cause of problems is trying to activate and configure BridgeDD w
 > **OPcache and APC are supported by BridgeDD 1.2.4 and later.**
 
 = I selected my phpBB installation, but the URL and preview for my board are wrong. =
-This means that the settings for your phpBB board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
+This means that the phpBB settings for your board's URL are incorrect. Since you are already logged in with your admin/founder account, go to the phpBB ACP. Click the **Server Settings** link near the bottom of the left sidebar, and in the **Server URL Settings** block, enter the correct _Domain name_ and _Script path_ for your board and click Submit. Now refresh the BridgeDD Settings page in WordPress, and you should see the correct URL and preview for your phpBB board.
 
 = I selected my phpBB installation, things seem to be OK, but BridgeDD doesn't integrate logins and logouts. =
 The WordPress and phpBB installations must be in the same domain, and WordPress must be able to save a cookie that phpBB can read. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
 ### Got more questions?
-Ask them at the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
 
+= 1.3.4 =
+* Bug fix: Access to remote WordPress database results in fatal phpBB error
+* New widget: phpBB Login/Logout
+* _View the Discussion_ link restored in cross-posted articles
+
 = 1.3.3 =
-* Bug fix: conflict when registration is set to WordPress
+* Bug fix: Conflict when registration is set to WordPress
 * Bug fix: Incorrect button and select/dropdown alignment on RTL languages
 * Arabic translation - _by mohamedh_
 
@@ -154,6 +159,10 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 == Upgrade Notice ==
 
+= 1.3.4 =
+
+The BridgeDD 1.3 major update has arrived on wordpress.org!
+
 = 1.2.7 =
 
 A minor update to prepare for the BridgeDD 1.3 major update
@@ -188,7 +197,7 @@ BridgeDD 1.2 uses less memory than previous versions, is easier to configure, an
 
 == Translations ==
 
-If you have translated this plugin into your language, feel free to post the PO file on the [**BridgeDD support board**](http://www.diondesigns.org/bridgedd/support/index.php).
+If you have translated this plugin into your language, feel free to post the PO file on the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 The following translations were done by [**FextraLife**](http://fextralife.com): _Spanish, French, German, Japanese, Polish, Portuguese, Italian_
 
