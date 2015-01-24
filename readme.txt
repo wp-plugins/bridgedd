@@ -11,7 +11,6 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 == Description ==
 
 > ### BridgeDD is a WordPress&harr;phpBB bridge that...works. <br />
-> <br />
 >
 > You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. New members in one application become members in the other application just by browsing to that application. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
 > 
@@ -22,7 +21,6 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 > Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress menus and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
 >
 > ### BridgeDD PRO supports phpBB 3.1. <br />
-> <br />
 
 == Installation ==
 
@@ -35,7 +33,7 @@ BridgeDD modifies phpBB files, and you should take the same precautions before i
 
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
-### Installation instructions
+### Installation instructions <br />
 
 > 1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
 > 2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
