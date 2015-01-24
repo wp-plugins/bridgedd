@@ -18,7 +18,7 @@ And best of all, the bridging is done using a breakthrough technology that elimi
 
 You can obtain support by visiting the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php)
 
-Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress header, menus, and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
+Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress menus and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
 
 ### BridgeDD PRO supports phpBB 3.1.
 
