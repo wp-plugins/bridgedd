@@ -30,11 +30,12 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 = Installation notes =
+
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
 
 BridgeDD will create a new directory on your system called **bridgedd**, and it will be at the same directory level as the WordPress **wp-content** directory. This directory will contain files that allow BridgeDD to upgrade you to new versions without the hassles you would encounter when upgrading other bridge plugins.
 
-### Installation instructions <br />
+= Installation instructions =
 
 > 1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
 > 2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
