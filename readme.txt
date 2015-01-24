@@ -25,7 +25,9 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Installation ==
 
-> Read the [**READ ME FIRST**](http://diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD!
+> ### Read the [READ ME FIRST](http://diondesigns.org/bridgedd/support/viewtopic.php?f=24&t=107) guide before installing BridgeDD! <br />
+>
+> &nbsp;
 
 BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
