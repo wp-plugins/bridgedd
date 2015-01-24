@@ -10,9 +10,8 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 
 == Description ==
 
-> ### BridgeDD is a WordPress&harr;phpBB bridge that...works.
->
-> &nbsp;
+> ### BridgeDD is a WordPress&harr;phpBB bridge that...works. <br />
+> <br />
 >
 > You can log in and out from WordPress or phpBB as you always do, and you will be automatically logged in/out of both applications. New members in one application become members in the other application just by browsing to that application. There is no need to worry about "integrating" existing members into both applications &mdash; BridgeDD handles it automatically.
 > 
@@ -22,9 +21,8 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 >
 > Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress menus and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
 >
-> ### BridgeDD PRO supports phpBB 3.1.
->
-> &nbsp;
+> ### BridgeDD PRO supports phpBB 3.1. <br />
+> <br />
 
 == Installation ==
 
@@ -39,14 +37,14 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 
 ### Installation instructions
 
-1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
-2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
-3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
-4. Activate the BridgeDD plugin
-5. Select your phpBB installation in BridgeDD Settings
-6. Verify that the displayed URL and board preview are correct, and click **Save Changes**
-7. Select the remaining BridgeDD settings options, and click **Save Changes** again
-8. Re-enable _XCache_ or _eAccelerator_
+> 1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
+> 2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
+> 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
+> 4. Activate the BridgeDD plugin
+> 5. Select your phpBB installation in BridgeDD Settings
+> 6. Verify that the displayed URL and board preview are correct, and click **Save Changes**
+> 7. Select the remaining BridgeDD settings options, and click **Save Changes** again
+> 8. Re-enable _XCache_ or _eAccelerator_
 
 == Frequently Asked Questions ==
 
