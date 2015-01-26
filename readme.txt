@@ -1,6 +1,6 @@
 === BridgeDD ===
 Contributors: DionDesigns
-Donate link: http://diondesigns.org/bridgedd/subscribe/
+Donate link: http://diondesigns.org/bridgedd/support/viewtopic.php?t=75
 Tags: bridge,integration,phpbb
 Requires at least: 3.5
 Tested up to: 4.1
