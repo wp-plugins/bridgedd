@@ -67,6 +67,10 @@ Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/sup
 
 == Changelog ==
 
+= 1.3.5 =
+* Minor improvements to cross-post add-on
+* Improved compatibility with several phpBB MODs
+
 = 1.3.4 =
 * Bug fix: Access to remote WordPress database results in fatal phpBB error
 * New widget: phpBB Login/Logout
@@ -157,6 +161,10 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.3.5 =
+
+Just another BridgeDD update
 
 = 1.3.4 =
 
