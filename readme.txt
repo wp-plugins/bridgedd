@@ -38,13 +38,14 @@ BridgeDD will create a new directory on your system called **bridgedd**, and it 
 > **INSTALLATION INSTRUCTIONS**
 >
 > 1. If a bridge plugin such as _WP-United_ or _wp-phpbb-bridge_ is activated, follow its instructions to **deactivate it**
-> 2. **If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, disable it!**
-> 3. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
-> 4. Activate the BridgeDD plugin
-> 5. Select your phpBB installation in BridgeDD Settings
-> 6. Verify that the displayed URL and board preview are correct, and click **Save Changes**
-> 7. Select the remaining BridgeDD settings options, and click **Save Changes** again
-> 8. Re-enable _XCache_ or _eAccelerator_
+> 2. If you have installed the _XCache_ or _eAccelerator_ PHP cache extension, **disable it**
+> 3. Log in as administrator to your phpBB board
+> 4. Upload the _bridgedd.latest.zip_ file via the Install Plugins interface
+> 5. Activate the BridgeDD plugin
+> 6. Select your phpBB installation in BridgeDD Settings
+> 7. Verify that the phpBB displayed URL and board preview are correct, _and that you are logged in_, then click **Save Changes**
+> 8. Set the BridgeDD settings options as required, then click **Save Changes** again
+> 9. Re-enable _XCache_ or _eAccelerator_ if it was disabled in step (2)
 
 == Frequently Asked Questions ==
 
