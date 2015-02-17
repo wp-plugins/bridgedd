@@ -1,13 +1,13 @@
 <?php
 /*
 	BridgeDD Configuration Data
-	Copyright © 2014 by Dion Designs.
+	Copyright © 2015 by Dion Designs.
 	All Rights Reserved.
 */
 if (!defined('BRIDGEDD')) {
 	die('ERROR 001');
 }
-/**/
+
 /*
 	If you have an established WordPress site and have just installed phpBB,
 	use 'phpbb' instead of false, as shown below. Your WordPress users will

@@ -20,8 +20,10 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 > You can obtain support by visiting the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php)
 >
 > Those who become a BridgeDD Subscriber will gain access to a private forum where you can download **BridgeDD PRO**, the bridge everyone has been waiting for! You will be able to add your WordPress menus and widgets directly into your phpBB templates *without loading WordPress*, giving you the ability to create an integrated site that looks great and...works.
+
+> ### BridgeDD PRO supports phpBB 3.1. <br />
 >
-> **BridgeDD PRO supports phpBB 3.1.**
+> &nbsp;
 
 == Installation ==
 
@@ -29,7 +31,7 @@ BridgeDD creates a stable, resource-light bridge between WordPress and phpBB3.
 >
 > &nbsp;
 
-BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
+BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13PL1, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
 
@@ -67,6 +69,10 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.3.6 =
+* Bug fix: system tab in phpBB stops working when BridgeDD is installed
+* Bug fix: user integration data not properly added during wordpress logins
 
 = 1.3.5 =
 * Minor improvements to cross-post add-on
@@ -162,6 +168,12 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.3.6 =
+
+### BridgeDD 1.3.6 is a MANDATORY update!
+
+BridgeDD 1.3.6 fixes a serious bug introduced in BridgeDD 1.3.5.
 
 = 1.3.5 =
 
