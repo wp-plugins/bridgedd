@@ -68,7 +68,7 @@ function phpbb_make_clickable($text, $server_url = false, $class = 'postlink')
 
 			if (!sizeof($error)) {
 				define('WP_INSTALLING', $phpbb_root_path);
-				require($config['wp_abspath'] . 'wp-load.php');
+				require_once($config['wp_abspath'] . 'wp-load.php');
 				$phpbb_root_path = WP_INSTALLING;
 				$table_prefix = PHPBB_PREFIX;
 
@@ -79,7 +79,7 @@ function phpbb_make_clickable($text, $server_url = false, $class = 'postlink')
 					$error[] = $user->lang['USERNAME_TAKEN'];
 				}
 				if (email_exists($data['email'])) {
-					$error[] = $user->lang['EMAIL_TAKEN'];
+					$error[] = $user->lang['EMAIL_TAKEN_EMAIL'];
 				}
 			}
 [<MULTI>]
