@@ -2,7 +2,7 @@
 Contributors: DionDesigns
 Donate link: http://diondesigns.org/bridgedd/support/viewtopic.php?t=75
 Tags: bridge,integration,phpbb
-Requires at least: 3.5
+Requires at least: 3.6
 Tested up to: 4.2
 Stable tag: trunk
 
@@ -69,6 +69,12 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.3.7 =
+* Recent Board Topics widget supports i18n for last post times
+* New hooks added to allow other plugins to access phpBB features
+* Bug fix: several potential variable conflicts could result in blank pages
+* Bug fix: blank page when no add-ons selected
 
 = 1.3.6 =
 * Bug fix: system tab in phpBB stops working when BridgeDD is installed
@@ -168,6 +174,10 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.3.7 =
+
+Just another BridgeDD update
 
 = 1.3.6 =
 

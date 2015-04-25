@@ -2,7 +2,7 @@
 /*
 Plugin Name: BridgeDD
 Plugin URI: http://diondesigns.org/bridgedd/
-Version: 1.3.6
+Version: 1.3.7
 Author: Dion Designs
 Author URI: http://dion-designs.com
 Text Domain: bridgedd
@@ -14,9 +14,10 @@ if (!defined('WPINC')) {
 }
 
 @ini_set('open_basedir', '');
-define('BRIDGEDD', 10306);
+define('BRIDGEDD', 10307);
 define('BDD_MIN', '.min');
-require(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'bridgedd_driver' . BDD_MIN . '.addon');
+define('BDD_SEP', (defined('DIRECTORY_SEPARATOR') && DIRECTORY_SEPARATOR != '') ? DIRECTORY_SEPARATOR : '/');
+require(dirname(__FILE__) . BDD_SEP . 'bridgedd_driver' . BDD_MIN . '.addon');
 register_activation_hook(__FILE__, 'bridgedd_activate');
 register_deactivation_hook(__FILE__, 'bridgedd_deactivate');
 register_uninstall_hook(__FILE__, 'bridgedd_uninstall');
