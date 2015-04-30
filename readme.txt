@@ -70,6 +70,9 @@ Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/sup
 
 == Changelog ==
 
+= 1.3.8 =
+* Bug fix: adding a new user to phpBB will cause blank screens
+
 = 1.3.7 =
 * Recent Board Topics widget supports i18n for last post times
 * New hooks added to allow other plugins to access phpBB features
@@ -174,6 +177,11 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.3.8 =
+### BridgeDD 1.3.8 is a MANDATORY update!
+
+BridgeDD 1.3.8 fixes a serious bug introduced in BridgeDD 1.3.7.
 
 = 1.3.7 =
 
