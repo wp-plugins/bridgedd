@@ -64,7 +64,7 @@ This means that the phpBB settings for your board's URL are incorrect. Since you
 = I selected my phpBB installation, things seem to be OK, but BridgeDD doesn't integrate logins and logouts. =
 The WordPress and phpBB installations must be in the same domain, and WordPress must be able to save a cookie that phpBB can read. BridgeDD will not work if, for example, WordPress is installed at **http://mydomain.com** and phpBB is installed at **http://forum.mydomain.com**
 
-### Got more questions?
+=== Got more questions? ===
 Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
