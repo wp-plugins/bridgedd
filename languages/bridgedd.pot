@@ -1,4 +1,4 @@
-# Copyright (C) 2014 Dion Designs
+# Copyright (C) 2015 Dion Designs
 msgid ""
 msgstr ""
 "Project-Id-Version: BridgeDD 2.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
 #. do not translate the terms: BridgeDD, WordPress
-msgid "BridgeDD requires WordPress 3.5 or later."
+msgid "BridgeDD requires WordPress 3.6 or later."
 msgstr ""
 
 #. do not translate the terms: BridgeDD, PHP
@@ -27,7 +27,6 @@ msgstr ""
 msgid "<strong>ERROR</strong>: WordPress Integration failed."
 msgstr ""
 
-#: bridgedd.plugin:126 bridgedd.plugin:154
 msgid "Please contact the board administrator."
 msgstr ""
 
