@@ -74,6 +74,7 @@ Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/sup
 * Improved compatibility with WordPress plugins (eg, NextGEN Gallery)
 * Several action hooks added to give WordPress plugins access to phpBB
 * Bug fix: phpBB Login/Logout widget does not redirect back to WordPress after login
+* Danish translation - _by ljorg_
 
 = 1.3.8 =
 * Bug fix: adding a new user to phpBB will cause blank screens
@@ -254,3 +255,5 @@ The following translations were done by Maxim Tkachenko: _Russian, Ukranian_
 The following translation was done by Juliana Cristine: _Brazilian Portuguese_
 
 The following translation was done by [mohamedh](http://animefn.com): _Arabic_
+
+The following translation was done by [ljorg](http://nørdkultur.dk/): _Danish_
