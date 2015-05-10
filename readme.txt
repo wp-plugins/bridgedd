@@ -32,7 +32,7 @@ Those who become a BridgeDD Subscriber will gain access to a private forum where
 >
 > &nbsp;
 
-BridgeDD requires WordPress 3.5 or later, phpBB 3.0.9 - 3.0.13PL1, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
+BridgeDD requires WordPress 3.6 or later, phpBB 3.0.9 - 3.0.13PL1, PHP 5.3.0 or later, and the **mysqli** (Improved MySQL) PHP extension. This extension is bundled into PHP by default, and unless you have disabled it manually, it will be available.
 
 BridgeDD modifies phpBB files, and you should take the same precautions before installing BridgeDD as you do before installing a phpBB MOD through AutoMOD.
 
@@ -69,6 +69,11 @@ The WordPress and phpBB installations must be in the same domain, and WordPress 
 Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/support/index.php).
 
 == Changelog ==
+
+= 1.3.9 =
+* Improved compatibility with WordPress plugins (eg, NextGEN Gallery)
+* Several action hooks added to give WordPress plugins access to phpBB
+* Bug fix: phpBB Login/Logout widget does not redirect back to WordPress after login
 
 = 1.3.8 =
 * Bug fix: adding a new user to phpBB will cause blank screens
@@ -178,7 +183,12 @@ Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations 
 
 == Upgrade Notice ==
 
+= 1.3.9 =
+
+Just another BridgeDD update
+
 = 1.3.8 =
+
 ### BridgeDD 1.3.8 is a MANDATORY update!
 
 BridgeDD 1.3.8 fixes a serious bug introduced in BridgeDD 1.3.7.

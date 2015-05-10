@@ -28,6 +28,13 @@ define('BRIDGEDD_AUTO_INTEGRATE', 'wp');
 define('BRIDGEDD_AUTO_INTEGRATE', false);
 
 /*
+	This option sets the length of time, in seconds, that the Recent Topics
+	widget will cache its results. The minimum value is 60, the maximum value
+	is 1800. Values less than 300 can impact performance on busy sites. 
+*/
+define('RECENT_TOPICS_CACHE_TIME', 300);
+
+/*
 	This option sets the number of words to display in cross-post excerpts.
 	Minimum value is 50, maximum is 250.
 */
@@ -40,3 +47,11 @@ define('XPOST_EXCERPT_LENGTH', 100);
 	__('Site Admin') to have the string translated to your language.
 */
 define('DASHBOARD_NAME', __('Dashboard'));
+
+/*
+	This option controls the listing of topics in the Recent Board Topics
+	widget. The default setting of 'f_read' is best for most sites. If for
+	some reason you want guests and bots to see a listing of topics in
+	members-only forums, change the value to 'f_list'.
+*/
+define('BRIDGEDD_RECENT_TOPICS', 'f_read');

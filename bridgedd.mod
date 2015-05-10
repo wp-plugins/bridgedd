@@ -204,6 +204,11 @@ function validate_phpbb_username($username, $allowed_username = false)
 				}
 			}
 
+			if ($redirect = request_var('bridgedd', '')) {
+				header("Location: $redirect");
+				exit;
+			}
+
 [<MULTI>]
 		'U_FEED'				=> generate_board_url() . "/feed.$phpEx",
 		'U_WP'					=> $config['wp_url'],
