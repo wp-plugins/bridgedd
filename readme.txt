@@ -256,4 +256,4 @@ The following translation was done by Juliana Cristine: _Brazilian Portuguese_
 
 The following translation was done by [mohamedh](http://animefn.com): _Arabic_
 
-The following translation was done by [ljorg](http://nørdkultur.dk/): _Danish_
+The following translation was done by [ljorg](http://nÃ¸rdkultur.dk): _Danish_
