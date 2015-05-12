@@ -70,6 +70,9 @@ Ask them at the [**BridgeDD support board**](http://diondesigns.org/bridgedd/sup
 
 == Changelog ==
 
+= 1.3.10 =
+* Bug fix: logins to WordPress by non-integrated users will cause blank screens
+
 = 1.3.9 =
 * Improved compatibility with WordPress plugins (eg, NextGEN Gallery)
 * Several action hooks added to give WordPress plugins access to phpBB
@@ -183,6 +186,12 @@ First publicly-available version.
 Spanish, French, German, Japanese, Polish, Portuguese, and Italian translations - _by [**FextraLife**](http://fextralife.com)_
 
 == Upgrade Notice ==
+
+= 1.3.10 =
+
+### BridgeDD 1.3.10 is a MANDATORY update!
+
+BridgeDD 1.3.10 fixes a serious bug introduced in BridgeDD 1.3.9.
 
 = 1.3.9 =
 
