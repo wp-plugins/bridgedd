@@ -47,11 +47,3 @@ define('XPOST_EXCERPT_LENGTH', 100);
 	__('Site Admin') to have the string translated to your language.
 */
 define('DASHBOARD_NAME', __('Dashboard'));
-
-/*
-	This option controls the listing of topics in the Recent Board Topics
-	widget. The default setting of 'f_read' is best for most sites. If for
-	some reason you want guests and bots to see a listing of topics in
-	members-only forums, change the value to 'f_list'.
-*/
-define('BRIDGEDD_RECENT_TOPICS', 'f_read');
